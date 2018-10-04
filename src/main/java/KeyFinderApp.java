@@ -13,6 +13,7 @@ import java.util.*;
 public class KeyFinderApp {
     public static void main(String[] args) {
 
+        //This is to test if the method works as there are no objects to test this on yet
         try {
             File myFile = new File("C:\\Users\\mwsco\\IdeaProjects\\KeyFinder\\src\\main\\resources\\Key Records Sample.xlsx");
 
