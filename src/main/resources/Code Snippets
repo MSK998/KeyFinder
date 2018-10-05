@@ -1,25 +1,6 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.*;
+Original Load Data Method
 
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-/**
- * KeyFinder Database Handler Module was created by Mark Scott-Kiddie and Lewis Ross on 04/10/2018.
- */
-public class KeyFinder {
-
-    private List<List<String>> spreadSheet;
-
-    public KeyFinder(){
-        spreadSheet = new ArrayList<List<String>>();
-    }
-
-    public void loadData() {
+public void loadData() {
         try {
             File myFile = new File("/resources/Key Record Sample.xlsx");
 
@@ -69,5 +50,5 @@ public class KeyFinder {
             System.out.println(e);
             System.exit(1);
         }
-    }
-}
+
+        _________________________________________________________________________________________________________
