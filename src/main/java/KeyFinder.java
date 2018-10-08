@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.SQLOutput;
 import java.util.*;
 
 
@@ -11,6 +10,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * KeyFinder Database Handler Module was created by Mark Scott-Kiddie and Lewis Ross on 04/10/2018.
+ *
+ * The Database Handler Module's purpose is to import xlsx file formats into the system as it will
+ * have to work with the original users system if there are any problems with the new system.
  */
 public class KeyFinder {
 
@@ -33,6 +35,11 @@ public class KeyFinder {
     }
 
     public void loadData() {
+
+        /*
+         * To Create an option to add an extra field we will need to have a boolean
+         * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
+         */
         try {
             File myFile = new File("C:\\Users\\mwsco\\IdeaProjects\\KeyFinder\\src\\main\\resources\\Key Records Sample.xlsx");
 
@@ -56,9 +63,8 @@ public class KeyFinder {
                 //For each row iterate through the columns
                 Iterator<Cell> cellIterator = row.cellIterator();
                 String fullRow = "";
-                while (cellIterator.hasNext()) {
 
-
+                while (cellIterator.hasNext()){
                     Cell cell = cellIterator.next();
 
                     switch (cell.getCellType()) {
@@ -88,6 +94,9 @@ public class KeyFinder {
 
                         default:
                     }
+                    /*
+                     * This is where we should put the "add extra field code"
+                     */
                 }
                 System.out.println(fullRow);
                 rowNum++;

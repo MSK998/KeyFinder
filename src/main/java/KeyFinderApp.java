@@ -1,19 +1,19 @@
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.sql.SQLOutput;
-import java.util.*;
 
 /**
- * PACKAGE_NAME was created by Mark Scott-Kiddie on 04/10/2018.
+ * KeyFinder was created by Team 2 on 04/10/2018.
+ *
+ * Mark Scott-Kiddie
+ * Lee Robbie
+ * Lewis Ross
+ * Reuben Hadden
+ * Scott Guy
+ *
  */
 public class KeyFinderApp {
     public static void main(String[] args) {
 
+
+        //Testing Methods
         KeyFinder sheet1 = new KeyFinder();
         sheet1.loadData();
 
@@ -23,6 +23,6 @@ public class KeyFinderApp {
 
         System.out.println("Outputting cell 2,1");
 
-        sheet1.displaySpecific(2,0);
+        sheet1.displaySpecific(2,1);
     }
 }
