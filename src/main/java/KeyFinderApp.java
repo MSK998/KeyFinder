@@ -24,5 +24,16 @@ public class KeyFinderApp {
         System.out.println("Outputting cell 2,1");
 
         sheet1.displaySpecific(2,1);
+
+        //How will we get the ArrayList from KeyFinder to KeyWriter classes
+
+        /*
+        Work on
+
+        Search
+        Add Fields
+        Linking GUI to current classes
+        BrainStorm new features??
+         */
     }
 }
