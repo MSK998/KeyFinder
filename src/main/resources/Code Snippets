@@ -52,3 +52,74 @@ public void loadData() {
         }
 
         _________________________________________________________________________________________________________
+Original Load Data Method
+
+public void loadData() {
+        try {
+            File myFile = new File("/resources/Key Record Sample.xlsx");
+
+            FileInputStream fis = new FileInputStream(myFile);
+
+            //Finds the workbook instance for XLSX file
+            XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+
+            //Return first sheet from the XLSX workbook
+            XSSFSheet sheetOne = myWorkBook.getSheetAt(0);
+
+            //Get iterator to move through all rows in the sheet
+            Iterator<Row> rowIterator = sheetOne.iterator();
+
+            //Traverse over the row of the XLSX file
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+
+                //For each row iterate through the columns
+                Iterator<Cell> cellIterator = row.cellIterator();
+                while (cellIterator.hasNext()) {
+
+                    Cell cell = cellIterator.next();
+
+                    switch (cell.getCellType()) {
+                        case STRING:
+                            System.out.println(cell.getStringCellValue() + "\t");
+                            break;
+                        case NUMERIC:
+                            System.out.println(cell.getNumericCellValue() + "\t");
+                            break;
+                        case BOOLEAN:
+                            System.out.println(cell.getBooleanCellValue() + "\t");
+                            break;
+                        case _NONE:
+                            System.out.println(cell.getStringCellValue() + "\t");
+                            break;
+
+                        default:
+                    }
+
+                }
+                System.out.println("");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.exit(1);
+        }
+
+        _________________________________________________________________________________________________________
+
+        2D Array Resource
+
+        // Declare the 2D array list
+        ArrayList<ArrayList<String>> aObject;
+
+        // Create the 2D array list
+        aObject = new ArrayList<ArrayList<String>>();
+
+        // Add an element to the first dimension
+        aObject.add(new ArrayList<String>());
+
+        // Place a string in position [0,0]
+        aObject.get(0).add(new String("Quarks"));
+
+        // Display the string in position [0,0]
+        println(aObject.get(0).get(0).toString());
