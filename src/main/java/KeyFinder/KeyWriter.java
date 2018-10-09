@@ -35,7 +35,7 @@ public class KeyWriter {
     FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
     Workbook workbook = WorkbookFactory.create(inputStream);
     
-    Sheet sheet = workbook.getSheetAt(0);
+    Sheet sheet = workbook.getSheetAt(1);
     
     Object[][] newKeys = {
         {2456, "Tambour unit", "Lewis", "N533"},
