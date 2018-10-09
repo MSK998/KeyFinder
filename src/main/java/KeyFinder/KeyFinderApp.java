@@ -24,7 +24,7 @@ public class KeyFinderApp {
 
         sheet1.displayArray();
 
-        System.out.println("Outputting cell 2,1");
+        System.out.println("Outputting cell:");
 
         sheet1.displaySpecific(2,1);
 
@@ -41,9 +41,6 @@ public class KeyFinderApp {
 
         System.out.println("_____________________________________________________________________________________");
 
-        String basePath = new File("").getAbsolutePath();
-        System.out.println(basePath);
-        String path = new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath();
-        System.out.println(path);
+
     }
 }

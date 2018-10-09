@@ -51,7 +51,7 @@ public void loadData() {
             System.exit(1);
         }
 
-        _________________________________________________________________________________________________________
+        ________________________________________________________________________________________________________________
 Original Load Data Method
 
 public void loadData() {
@@ -105,7 +105,7 @@ public void loadData() {
             System.exit(1);
         }
 
-        _________________________________________________________________________________________________________
+        ________________________________________________________________________________________________________________
 
         2D Array Resource
 
@@ -123,3 +123,11 @@ public void loadData() {
 
         // Display the string in position [0,0]
         println(aObject.get(0).get(0).toString());
+
+
+        ________________________________________________________________________________________________________________
+
+       String basePath = new File("").getAbsolutePath();
+               System.out.println(basePath);
+               String path = new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath();
+               System.out.println(path);
