@@ -1,6 +1,6 @@
 package KeyFinder;
 
-import KeyFinder.KeyFinder;
+import java.io.File;
 
 /**
  * KeyFinder.KeyFinder was created by Team 2 on 04/10/2018.
@@ -28,7 +28,7 @@ public class KeyFinderApp {
 
         sheet1.displaySpecific(2,1);
 
-        //How will we get the ArrayList from KeyFinder.KeyFinder to KeyWriter classes
+        //How will we get the ArrayList from KeyFinder to KeyWriter classes
 
         /*
         Work on
@@ -38,5 +38,12 @@ public class KeyFinderApp {
         Linking GUI to current classes
         BrainStorm new features??
          */
+
+        System.out.println("_____________________________________________________________________________________");
+
+        String basePath = new File("").getAbsolutePath();
+        System.out.println(basePath);
+        String path = new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath();
+        System.out.println(path);
     }
 }

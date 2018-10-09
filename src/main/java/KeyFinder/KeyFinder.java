@@ -43,7 +43,7 @@ public class KeyFinder {
          * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
          */
         try {
-            File myFile = new File("C:\\Users\\mwsco\\IdeaProjects\\KeyFinder\\src\\main\\resources\\Key Records Sample.xlsx");
+            File myFile = new File(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
 
             FileInputStream fis = new FileInputStream(myFile);
 
