@@ -1,7 +1,5 @@
 package KeyFinder;
 
-import java.io.File;
-
 /**
  * KeyFinder.KeyFinder was created by Team 2 on 04/10/2018.
  *
