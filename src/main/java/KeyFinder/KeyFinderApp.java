@@ -1,6 +1,7 @@
 package KeyFinder;
 
 import java.io.IOException;
+import java.awt.*;
 
 /**
  * KeyFinder.KeyFinder was created by Team 2 on 04/10/2018.
@@ -31,9 +32,9 @@ public class KeyFinderApp extends javax.swing.JFrame {
 
         sheet1.displayArray();
 
-        System.out.println("Outputting cell:");
+        //System.out.println("Outputting cell:");
 
-        sheet1.displaySpecific(2,1);
+        //sheet1.displaySpecific(2,1);
         
         
         KeyWriter sheet2 = new KeyWriter();

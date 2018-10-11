@@ -35,7 +35,10 @@ public class KeyFinder {
         }
     }
 
+
+
     public void loadData() {
+        long startTime = System.nanoTime();
 
         /*
          * To Create an option to add an extra field we will need to have a boolean
@@ -50,14 +53,14 @@ public class KeyFinder {
             XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
 
             //Return first sheet from the XLSX workbook
-            XSSFSheet sheetOne = myWorkBook.getSheetAt(0);
+            XSSFSheet sheetOne = myWorkBook.getSheetAt(1);
 
             //Get iterator to move through all rows in the sheet
             Iterator<Row> rowIterator = sheetOne.iterator();
 
             //Traverse over the row of the XLSX file
             int rowNum = 0;
-            while (rowIterator.hasNext()) {
+            while (rowIterator.hasNext() || rowNum < 20) {
                 Row row = rowIterator.next();
                 spreadSheet.add(new ArrayList<String>());
 
@@ -70,35 +73,40 @@ public class KeyFinder {
 
                     switch (cell.getCellType()) {
                         case STRING:
-                            System.out.println(cell.getStringCellValue() + "\t");
-                            fullRow += cell.getStringCellValue() + "\t";
+                            //System.out.println(cell.getStringCellValue() + "\t");
+                            fullRow += cell.getStringCellValue() + "\t\t";
                             spreadSheet.get(rowNum).add(cell.getStringCellValue());
                             break;
                         case NUMERIC:
-                            System.out.println(cell.getNumericCellValue() + "\t");
-                            fullRow += cell.getNumericCellValue() + "\t";
+                            //System.out.println(cell.getNumericCellValue() + "\t");
+                            fullRow += cell.getNumericCellValue() + "\t\t";
                             spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
                             break;
                         case BOOLEAN:
-                            System.out.println(cell.getBooleanCellValue() + "\t");
-                            fullRow += cell.getBooleanCellValue() + "\t";
+                            //System.out.println(cell.getBooleanCellValue() + "\t");
+                            fullRow += cell.getBooleanCellValue() + "\t\t";
                             spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
                             break;
-                        case BLANK:
-                            System.out.println("[BLANK]");
-                            break;
-                        case _NONE:
-                            System.out.println(cell.getStringCellValue() + "\t");
-                            fullRow += cell.getStringCellValue() + "\t";
-                            spreadSheet.get(rowNum).add(cell.getStringCellValue());
-                            break;
+//                        case BLANK:
+//                            //System.out.println("[BLANK]");
+//                            fullRow += cell.getStringCellValue() + "\t\t";
+//                            spreadSheet.get(rowNum).add("[BLANK]");
+//                            break;
+//                        case _NONE:
+//                            //System.out.println(cell.getStringCellValue() + "\t");
+//                            fullRow += "[BLANK]" + "\t\t";
+//                            spreadSheet.get(rowNum).add("[BLANK]");
+//                            break;
 
                         default:
+                            fullRow += "[BLANK]" + "\t\t";
+                            spreadSheet.get(rowNum).add("[BLANK]");
                     }
                     /*
                      * This is where we should put the "add extra field code"
                      */
                 }
+
                 System.out.println(fullRow);
                 rowNum++;
             }
@@ -107,5 +115,7 @@ public class KeyFinder {
             System.out.println("error" + e);
             System.exit(1);
         }
+
+        System.out.println((System.nanoTime() - startTime) / 1000000);
     }
 }
