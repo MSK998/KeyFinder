@@ -7,6 +7,7 @@ package KeyFinder;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import java.io.File;
 
 /**
  *
@@ -79,15 +80,15 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         editButton.setText("Edit");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmanagement/New_RGU_logo.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("src\\main\\resources\\New_RGU_logo.jpg"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmanagement/key_pic.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("src\\main\\resources\\key_pic.png"))); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmanagement/fob_pic.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("src\\main\\resources\\fob_pic.png"))); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmanagement/questionMark_pic.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("src\\main\\resources\\questionMark_pic.png"))); // NOI18N
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmanagement/door_pic.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("src\\main\\resources\\door_pic.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
