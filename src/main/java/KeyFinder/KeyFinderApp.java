@@ -20,7 +20,7 @@ public class KeyFinderApp extends javax.swing.JFrame {
             public void run() {
                 new KeyFinderGUI().setVisible(true);
             }
-        });
+        }); 
 
 
 
@@ -38,6 +38,7 @@ public class KeyFinderApp extends javax.swing.JFrame {
         
         
         KeyWriter sheet2 = new KeyWriter();
+        sheet2.updateSpecificRow();
 
 
         //How will we get the ArrayList from KeyFinder to KeyWriter classes
