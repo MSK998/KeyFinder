@@ -97,16 +97,13 @@ public class KeyWriter {
     //for the object row
     for (Object[] aKey : newKeys) {
         Row row = sheet.createRow(++rowCount);
-
-        //column count set to 0
-        int columnCount = 0;
+            
         
-        Cell cell = row.createCell(columnCount);
-        cell.setCellValue(rowCount);
+        //column count set to 0
+       int columnCount = 0;
 
-        //for each column
         for (Object field : aKey) {
-            cell = row.createCell(++columnCount);
+            Cell cell = row.createCell(columnCount++);
             if (field instanceof String) {
                 cell.setCellValue((String) field);
             } else if (field instanceof Integer) {
