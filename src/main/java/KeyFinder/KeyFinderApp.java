@@ -12,8 +12,15 @@ import java.io.IOException;
  * Scott Guy
  *
  */
-public class KeyFinderApp {
+public class KeyFinderApp extends javax.swing.JFrame {
     public static void main(String[] args) throws IOException {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new KeyFinderGUI().setVisible(true);
+            }
+        });
+
 
 
         //Testing Methods
@@ -30,9 +37,7 @@ public class KeyFinderApp {
         
         
         KeyWriter sheet2 = new KeyWriter();
-        
-        
-        sheet2.updateSpecificRow();
+
 
         //How will we get the ArrayList from KeyFinder to KeyWriter classes
 
@@ -49,4 +54,22 @@ public class KeyFinderApp {
 
 
     }
+
+    private javax.swing.JButton editButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton lostKeysBtn;
+    private javax.swing.JButton searchByRoom;
+    private javax.swing.JButton searchFobsBtn;
+    private javax.swing.JButton searchKeysBtn;
+    private java.awt.TextArea textArea1;
+    // End of variables declaration//GEN-END:variables
 }

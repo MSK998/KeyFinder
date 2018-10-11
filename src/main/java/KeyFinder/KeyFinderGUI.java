@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectmanagement;
+package KeyFinder;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author 1516250
  */
-public class ProjectManagemnetGUI extends javax.swing.JFrame {
+public class KeyFinderGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
-    public ProjectManagemnetGUI() {
+    public KeyFinderGUI() {
         initComponents();
     }
 
@@ -249,13 +249,13 @@ public class ProjectManagemnetGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProjectManagemnetGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyFinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProjectManagemnetGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyFinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProjectManagemnetGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyFinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProjectManagemnetGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KeyFinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold
         //</editor-fold>
@@ -263,7 +263,7 @@ public class ProjectManagemnetGUI extends javax.swing.JFrame {
         /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new ProjectManagemnetGUI().setVisible(true);
+//                new KeyFinderGUI().setVisible(true);
 //            }
 //        });
     }
