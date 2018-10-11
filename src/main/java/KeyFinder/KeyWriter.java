@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -31,6 +32,9 @@ public class KeyWriter {
     
     
     public void updateSpecificRow() throws IOException {
+        Scanner user_input = new Scanner(System.in);
+        Scanner rowNumber = new Scanner(System.in);
+        Scanner ColumnNumber = new Scanner(System.in);
             try {
         //Get the excel file.
         FileInputStream file = new FileInputStream(new File("/Users/Lewis/Desktop/University/CM3108/KeyRecordsSample.xlsx"));
@@ -44,14 +48,19 @@ public class KeyWriter {
  
         // Get the row of your desired cell.
         // desired cell is at row 3.
-        Row row = sheet1.getRow(2);
+        System.out.println("Enter the row number of which you want to change");
+        Row row = sheet1.getRow(rowNumber.nextInt());
+       //Row row = sheet1.getRow(2);
         // Get the column of your desired cell in your selected row.
         // desired cell is at column 3.
-        Cell column = row.getCell(2);
+        System.out.println("Enter the column number of which you want to change");
+        
+       Cell column = row.getCell(2);
         // If the cell is String type
         String updatename = column.getStringCellValue();
-        //New content for desired cell.
-        updatename="Going for the A";
+        //New content for desired cell
+        System.out.println("Make the changes");
+        updatename=user_input.next();
         //Print out the updated content.
         System.out.println(updatename);
         //Set the new content to your desired cell(column).
