@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * KeyFinder.KeyFinder Database Handler Module was created by Mark Scott-Kiddie and Lewis Ross on 04/10/2018.
@@ -74,18 +75,29 @@ public class KeyFinder {
                     switch (cell.getCellType()) {
                         case STRING:
                             //System.out.println(cell.getStringCellValue() + "\t");
-                            fullRow += cell.getStringCellValue() + "\t\t";
-                            spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                            if(org.apache.commons.lang3.StringUtils.isNotEmpty(cell.getStringCellValue())) {
+//                                fullRow += "[BLANK]" + "\t\t\t";
+//                                spreadSheet.get(rowNum).add("[BLANK]");
+                                fullRow += cell.getStringCellValue() + "\t\t\t";
+                                spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                            }else {
+//                                fullRow += cell.getStringCellValue() + "\t\t\t";
+//                                spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                                fullRow += "[BLANK]" + "\t\t\t";
+                                spreadSheet.get(rowNum).add("[BLANK]");
+                            }
                             break;
                         case NUMERIC:
                             //System.out.println(cell.getNumericCellValue() + "\t");
-                            fullRow += cell.getNumericCellValue() + "\t\t";
+                            fullRow += cell.getNumericCellValue() + "\t\t\t";
                             spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
                             break;
                         case BOOLEAN:
                             //System.out.println(cell.getBooleanCellValue() + "\t");
-                            fullRow += cell.getBooleanCellValue() + "\t\t";
+                            fullRow += cell.getBooleanCellValue() + "\t\t\t";
                             spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
+                            break;
+                        case FORMULA:
                             break;
 //                        case BLANK:
 //                            //System.out.println("[BLANK]");
@@ -97,9 +109,11 @@ public class KeyFinder {
 //                            fullRow += "[BLANK]" + "\t\t";
 //                            spreadSheet.get(rowNum).add("[BLANK]");
 //                            break;
-
+//
+//                        case ERROR:
+//                            break;
                         default:
-                            fullRow += "[BLANK]" + "\t\t";
+                            fullRow += "[BLANK]" + "\t\t\t";
                             spreadSheet.get(rowNum).add("[BLANK]");
                     }
                     /*

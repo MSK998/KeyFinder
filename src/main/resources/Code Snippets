@@ -104,6 +104,7 @@ public void loadData() {
             System.out.println(e);
             System.exit(1);
         }
+        }
 
         ________________________________________________________________________________________________________________
 
@@ -146,3 +147,48 @@ public void loadData() {
                 new KeyFinderGUI().setVisible(true);
             }
         });
+
+
+
+        ________________________________________________________________________________________________________________
+
+
+        switch (cell.getCellType()) {
+                                case STRING:
+                                    //System.out.println(cell.getStringCellValue() + "\t");
+                                    if(org.apache.commons.lang3.StringUtils.isBlank(cell.getStringCellValue())) {
+                                        fullRow += "[BLANK]" + "\t\t\t";
+                                        spreadSheet.get(rowNum).add("[BLANK]");
+                                    }else {
+                                        fullRow += cell.getStringCellValue() + "\t\t\t";
+                                        spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                                    }
+                                    break;
+                                case NUMERIC:
+                                    //System.out.println(cell.getNumericCellValue() + "\t");
+                                    fullRow += cell.getNumericCellValue() + "\t\t\t";
+                                    spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
+                                    break;
+                                case BOOLEAN:
+                                    //System.out.println(cell.getBooleanCellValue() + "\t");
+                                    fullRow += cell.getBooleanCellValue() + "\t\t\t";
+                                    spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
+                                    break;
+                                case BLANK:
+                                    //System.out.println("[BLANK]");
+                                    fullRow += cell.getStringCellValue() + "\t\t";
+                                    spreadSheet.get(rowNum).add("[BLANK]");
+                                    break;
+                                case _NONE:
+                                    //System.out.println(cell.getStringCellValue() + "\t");
+                                    fullRow += "[BLANK]" + "\t\t";
+                                    spreadSheet.get(rowNum).add("[BLANK]");
+                                    break;
+
+                                default:
+                                    fullRow += "[BLANK]" + "\t\t\t";
+                                    spreadSheet.get(rowNum).add("[BLANK]");
+                            }
+
+
+                            null == cell ? "" : cell.toString()
