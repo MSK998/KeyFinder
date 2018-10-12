@@ -192,3 +192,100 @@ public void loadData() {
 
 
                             null == cell ? "" : cell.toString()
+
+                            ____________________________________________________________________________________________
+
+                            public void loadData() {
+                                    long startTime = System.nanoTime();
+
+                                    /*
+                                     * To Create an option to add an extra field we will need to have a boolean
+                                     * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
+                                     */
+                                    try {
+                                        File myFile = new File(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+
+                                        FileInputStream fis = new FileInputStream(myFile);
+
+                                        //Finds the workbook instance for XLSX file
+                                        XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+
+                                        //Return first sheet from the XLSX workbook
+                                        XSSFSheet sheetOne = myWorkBook.getSheetAt(1);
+
+                                        //Get iterator to move through all rows in the sheet
+                                        Iterator<Row> rowIterator = sheetOne.iterator();
+
+                                        int numCol = (sheetOne.getRow(0).getLastCellNum());
+                                        System.out.println(numCol);
+
+                                        //Traverse over the row of the XLSX file
+                                        int rowNum = 0;
+                                        while (rowIterator.hasNext()) {
+                                            Row row = rowIterator.next();
+
+                                            spreadSheet.add(new ArrayList<String>());
+
+                                            //For each row iterate through the columns
+                                            Iterator<Cell> cellIterator = row.cellIterator();
+                                            String fullRow = "";
+
+                                            while (cellIterator.hasNext()) {
+                                                Cell cell = cellIterator.next();
+                                                cell.setCellType(CellType.STRING);
+
+                                                if (org.apache.commons.lang3.StringUtils.isBlank(cell.getStringCellValue())) {
+                                                    fullRow += "[BLANK]" + "\t\t\t";
+                                                    spreadSheet.get(rowNum).add("[BLANK]");
+
+                                                } else {
+
+                                                    switch (cell.getCellType()) {
+                                                        case STRING:
+                                                            //System.out.println(cell.getStringCellValue() + "\t");
+                                                            fullRow += cell.getStringCellValue() + "\t\t\t";
+                                                            spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                                                            break;
+                                                        case NUMERIC:
+                                                            //System.out.println(cell.getNumericCellValue() + "\t");
+                                                            fullRow += cell.getNumericCellValue() + "\t\t\t";
+                                                            spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
+                                                            break;
+                                                        case BOOLEAN:
+                                                            //System.out.println(cell.getBooleanCellValue() + "\t");
+                                                            fullRow += cell.getBooleanCellValue() + "\t\t\t";
+                                                            spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
+                                                            break;
+                                                        case FORMULA:
+                                                            break;
+                            //                        case BLANK:
+                            //                            //System.out.println("[BLANK]");
+                            //                            fullRow += cell.getStringCellValue() + "\t\t";
+                            //                            spreadSheet.get(rowNum).add("[BLANK]");
+                            //                            break;
+                            //                        case _NONE:
+                            //                            //System.out.println(cell.getStringCellValue() + "\t");
+                            //                            fullRow += "[BLANK]" + "\t\t";
+                            //                            spreadSheet.get(rowNum).add("[BLANK]");
+                            //                            break;
+                            //
+                            //                        case ERROR:
+                            //                            break;
+                                                        default:
+                                                            fullRow += "[BLANK]" + "\t\t\t";
+                                                            spreadSheet.get(rowNum).add("[BLANK]");
+                                                    }
+                                                    /*
+                                                     * This is where we should put the "add extra field code"
+                                                     */
+                                                }
+                                            }
+
+                                            System.out.println(fullRow);
+                                            rowNum++;
+                                        }
+
+                                    } catch (Exception e) {
+                                        System.out.println("error" + e);
+                                        System.exit(1);
+                                    }
