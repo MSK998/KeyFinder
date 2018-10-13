@@ -20,25 +20,25 @@ public class KeyFinderApp extends javax.swing.JFrame {
             public void run() {
                 new KeyFinderGUI().setVisible(true);
             }
-        }); 
+        });  
 
 
 
         //Testing Methods
-        KeyFinder sheet1 = new KeyFinder();
+     /*   KeyFinder sheet1 = new KeyFinder();
         sheet1.loadData();
 
         System.out.println("Displaying Array Now");
 
-        sheet1.displayArray();
+       sheet1.displayArray(); */
 
         //System.out.println("Outputting cell:");
 
         //sheet1.displaySpecific(2,1);
         
         
-        KeyWriter sheet2 = new KeyWriter();
-        sheet2.updateSpecificRow();
+    //    KeyWriter sheet2 = new KeyWriter();
+      //  sheet2.updateSpecificRow(); 
 
 
         //How will we get the ArrayList from KeyFinder to KeyWriter classes
@@ -52,7 +52,7 @@ public class KeyFinderApp extends javax.swing.JFrame {
         BrainStorm new features??
          */
 
-        System.out.println("_____________________________________________________________________________________");
+   //     System.out.println("_____________________________________________________________________________________");
 
 
     }

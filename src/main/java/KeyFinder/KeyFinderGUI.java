@@ -189,10 +189,15 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
     private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
   
-                if (this.jFileChooser1.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                String str = "File Loaded:\n";
-                }
-
+             // if (this.jFileChooser1.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                //String str = "File Loaded:\n";
+               // }
+               KeyFinder ld = new KeyFinder();
+               ld.loadData(); 
+               jTextArea1.append("\n");
+              // ld.displayArray();
+               
+             //  }
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
@@ -265,7 +270,7 @@ String keySearch = JOptionPane.showInputDialog("Please enter the Key you are loo
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JButton lostKeysBtn;
     private javax.swing.JMenuItem saveMenuItem;
