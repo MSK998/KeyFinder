@@ -19,6 +19,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
      */
     public KeyFinderGUI() {
         initComponents();
+        jTextArea1.setEditable(false);
     }
 
     /**
@@ -84,6 +85,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         editBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/door_pic.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -214,6 +220,11 @@ String keySearch = JOptionPane.showInputDialog("Please enter the Key you are loo
         
         String fobSearch = JOptionPane.showInputDialog("Please enter the Fob you are looking for:");
     }//GEN-LAST:event_searchFobsBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        jTextArea1.setEditable(true);
+        
+    }//GEN-LAST:event_editBtnActionPerformed
 
     /**
      * @param args the command line arguments
