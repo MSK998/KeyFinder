@@ -3,8 +3,6 @@ package KeyFinder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.*;
-
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -95,19 +93,19 @@ public class KeyFinder {
                                 //System.out.println(cell.getStringCellValue() + "\t");
                                 fullRow += cell.getStringCellValue() + "\t\t\t";
                                 spreadSheet.get(rowNum).add(cell.getStringCellValue());
-                                KeyFinderGUI.jTextArea1.append("\n");
+                                KeyFinderGUI.outputTextArea.append("\n");
                                 break;
                             case NUMERIC:
                                 //System.out.println(cell.getNumericCellValue() + "\t");
                                 fullRow += cell.getNumericCellValue() + "\t\t\t";
                                 spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
-                                KeyFinderGUI.jTextArea1.append("\n");
+                                KeyFinderGUI.outputTextArea.append("\n");
                                 break;
                             case BOOLEAN:
                                 //System.out.println(cell.getBooleanCellValue() + "\t");
                                 fullRow += cell.getBooleanCellValue() + "\t\t\t";
                                 spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
-                                KeyFinderGUI.jTextArea1.append("\n");
+                                KeyFinderGUI.outputTextArea.append("\n");
                                 break;
                             case FORMULA:
                                 break;
@@ -127,7 +125,7 @@ public class KeyFinder {
                             default:
                                 fullRow += "[BLANK]" + "\t\t\t";
                                 spreadSheet.get(rowNum).add("[BLANK]");
-                                KeyFinderGUI.jTextArea1.append("\n");
+                                KeyFinderGUI.outputTextArea.append("\n");
                         }
                         /*
                          * This is where we should put the "add extra field code"
@@ -136,7 +134,7 @@ public class KeyFinder {
                 }
 
                 System.out.println(fullRow);
-                KeyFinderGUI.jTextArea1.append(fullRow);
+                KeyFinderGUI.outputTextArea.append(fullRow);
                 rowNum++;
             }
 

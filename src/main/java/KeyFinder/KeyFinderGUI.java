@@ -19,7 +19,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
      */
     public KeyFinderGUI() {
         initComponents();
-        jTextArea1.setEditable(false);
+        outputTextArea.setEditable(false);
     }
 
     /**
@@ -33,7 +33,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        outputTextArea = new javax.swing.JTextArea();
         searchKeysBtn = new javax.swing.JButton();
         searchFobsBtn = new javax.swing.JButton();
         searchRoomBtn = new javax.swing.JButton();
@@ -43,18 +43,20 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        rguLogoJLabel = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        fileJMenu = new javax.swing.JMenu();
         loadMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        loginMenuItem = new javax.swing.JMenuItem();
+        editJMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        outputTextArea.setColumns(20);
+        outputTextArea.setRows(5);
+        jScrollPane1.setViewportView(outputTextArea);
 
         searchKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         searchKeysBtn.setText("Search Keys");
@@ -82,6 +84,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         lostKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lostKeysBtn.setText("Lost Keys");
+        lostKeysBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lostKeysBtnActionPerformed(evt);
+            }
+        });
 
         editBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         editBtn.setText("Edit");
@@ -100,9 +107,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/questionMark_pic.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/New_RGU_logo.jpg"))); // NOI18N
+        rguLogoJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/New_RGU_logo.jpg"))); // NOI18N
 
-        jMenu3.setText("File");
+        fileJMenu.setText("File");
 
         loadMenuItem.setText("Load");
         loadMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -110,15 +117,19 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 loadMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(loadMenuItem);
+        fileJMenu.add(loadMenuItem);
 
         saveMenuItem.setText("Save");
-        jMenu3.add(saveMenuItem);
+        fileJMenu.add(saveMenuItem);
+        fileJMenu.add(jSeparator1);
 
-        jMenuBar2.add(jMenu3);
+        loginMenuItem.setText("Login/Logout");
+        fileJMenu.add(loginMenuItem);
 
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
+        jMenuBar2.add(fileJMenu);
+
+        editJMenu.setText("Edit");
+        jMenuBar2.add(editJMenu);
 
         setJMenuBar(jMenuBar2);
 
@@ -154,8 +165,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)))
+                        .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,9 +179,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel5)
+                .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,31 +211,35 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                // }
                KeyFinder ld = new KeyFinder();
                ld.loadData(); 
-               jTextArea1.append("\n");
+               outputTextArea.append("\n");
               // ld.displayArray();
                
              //  }
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
-String keySearch = JOptionPane.showInputDialog("Please enter the Key you are looking for:");        
+        KeysDialog kd = new KeysDialog();
+        kd.setVisible(true);
     }//GEN-LAST:event_searchKeysBtnActionPerformed
 
     private void searchRoomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRoomBtnActionPerformed
         
-        String roomSearch = JOptionPane.showInputDialog("Please enter the Room You are looking for:");
     }//GEN-LAST:event_searchRoomBtnActionPerformed
 
     private void searchFobsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFobsBtnActionPerformed
-        
-        
-        String fobSearch = JOptionPane.showInputDialog("Please enter the Fob you are looking for:");
+        FobsDialog fd = new FobsDialog();
+        fd.setVisible(true);
     }//GEN-LAST:event_searchFobsBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-        jTextArea1.setEditable(true);
+        outputTextArea.setEditable(true);
         
     }//GEN-LAST:event_editBtnActionPerformed
+
+    private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
+       LostKeysDialog lkd = new LostKeysDialog();
+       lkd.setVisible(true);
+    }//GEN-LAST:event_lostKeysBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,19 +286,21 @@ String keySearch = JOptionPane.showInputDialog("Please enter the Key you are loo
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editBtn;
+    private javax.swing.JMenu editJMenu;
+    private javax.swing.JMenu fileJMenu;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem loadMenuItem;
+    private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JButton lostKeysBtn;
+    public static javax.swing.JTextArea outputTextArea;
+    private javax.swing.JLabel rguLogoJLabel;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JButton searchFobsBtn;
     private javax.swing.JButton searchKeysBtn;
