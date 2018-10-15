@@ -32,22 +32,28 @@ public class FobsDialog extends javax.swing.JFrame {
         attributeLabel = new javax.swing.JLabel();
         searchBtn = new javax.swing.JButton();
         fobsLabel = new javax.swing.JLabel();
+        textLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fobsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fobsJComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fobsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff/Fob Name", "Fob Number" }));
 
-        inputTextField.setText("Enter Text");
+        inputTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         attributeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        attributeLabel.setForeground(new java.awt.Color(254, 160, 40));
+        attributeLabel.setForeground(new java.awt.Color(153, 0, 230));
         attributeLabel.setText("Select Attribute");
 
         searchBtn.setText("Search");
 
         fobsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        fobsLabel.setForeground(new java.awt.Color(254, 160, 40));
+        fobsLabel.setForeground(new java.awt.Color(153, 0, 230));
         fobsLabel.setText("Fobs");
+
+        textLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textLabel.setForeground(new java.awt.Color(153, 0, 230));
+        textLabel.setText("Enter Text:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,7 +66,9 @@ public class FobsDialog extends javax.swing.JFrame {
                         .addComponent(fobsLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -77,9 +85,11 @@ public class FobsDialog extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(fobsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
@@ -131,5 +141,6 @@ public class FobsDialog extends javax.swing.JFrame {
     private javax.swing.JLabel fobsLabel;
     private javax.swing.JTextField inputTextField;
     private javax.swing.JButton searchBtn;
+    private javax.swing.JLabel textLabel;
     // End of variables declaration//GEN-END:variables
 }
