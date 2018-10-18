@@ -5,6 +5,9 @@
  */
 package KeyFinder;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 /**
  *
  * @author 1601482 - Reuben Hadden
@@ -29,8 +32,8 @@ public class KeysDialog extends javax.swing.JFrame {
 
         searchBtn = new javax.swing.JButton();
         keysLabel = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        Attribute = new javax.swing.JComboBox<>();
+        KeySearch = new javax.swing.JTextField();
         attributeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,9 +44,15 @@ public class KeysDialog extends javax.swing.JFrame {
         keysLabel.setForeground(new java.awt.Color(68, 198, 111));
         keysLabel.setText("Keys:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Attribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Key #", "Key Type", "Allocated To", "Location", " " }));
+        Attribute.setToolTipText("");
+        Attribute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttributeActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("Enter Text");
+        KeySearch.setText("Enter Text");
 
         attributeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         attributeLabel.setForeground(new java.awt.Color(68, 198, 111));
@@ -60,10 +69,10 @@ public class KeysDialog extends javax.swing.JFrame {
                         .addComponent(keysLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -79,9 +88,9 @@ public class KeysDialog extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
@@ -89,6 +98,10 @@ public class KeysDialog extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
+    
+    }//GEN-LAST:event_AttributeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,9 +139,9 @@ public class KeysDialog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> Attribute;
+    public static javax.swing.JTextField KeySearch;
     private javax.swing.JLabel attributeLabel;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel keysLabel;
     private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
