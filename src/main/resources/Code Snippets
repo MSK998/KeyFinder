@@ -289,3 +289,64 @@ public void loadData() {
                                         System.out.println("error" + e);
                                         System.exit(1);
                                     }
+
+
+
+
+                                    public void loadData() {
+                                            long startTime = System.nanoTime();
+
+                                            /*
+                                             * To Create an option to add an extra field we will need to have a boolean
+                                             * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
+                                             */
+                                            try {
+                                                File myFile = new File(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+
+                                                FileInputStream fis = new FileInputStream(myFile);
+
+                                                //Finds the workbook instance for XLSX file
+                                                XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+
+                                                //Return first sheet from the XLSX workbook
+                                                XSSFSheet sheet = myWorkBook.getSheetAt(1);
+
+                                                //Get manually iterate through all rows in the sheet
+                                                XSSFRow row;
+
+                                                int totalNumCol = (sheet.getRow(0).getLastCellNum());
+                                                System.out.println(totalNumCol);
+
+                                                //Traverse over the row of the XLSX file
+                                                int finalRowNum = sheet.getLastRowNum();
+
+                                                for(int x = 0; x < finalRowNum; x++){
+                                                    row = sheet.getRow(x);
+                                                    spreadSheet.add(new ArrayList<String>());
+                                                    String fullRow = "";
+
+
+                                                    for(int y = 0; y < totalNumCol; y++) {
+                                                        Cell cell = row.getCell(y);
+                                                        cell.setCellType(CellType.STRING);
+
+                                                        if(cell.getCellType() == CellType.BLANK){
+                                                            spreadSheet.get(x).add("BLANK");
+                                                            fullRow += "BLANK" + "\t\t\t";
+                                                        } else {
+                                                            spreadSheet.get(x).add(cell.getStringCellValue());
+                                                            fullRow += cell + "\t\t\t";
+                                                        }
+                                                    }
+                                                    System.out.println(fullRow);
+                                                }
+
+
+
+                                            } catch (Exception e) {
+                                                System.out.println("error" + e);
+                                                System.exit(1);
+                                            }
+
+                                            System.out.println((System.nanoTime() - startTime) / 1000000);
+                                        }
