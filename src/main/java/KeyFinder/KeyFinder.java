@@ -7,6 +7,8 @@ import java.util.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.commons.lang3.StringUtils;
@@ -57,79 +59,59 @@ public class KeyFinder {
             XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
 
             //Return first sheet from the XLSX workbook
-            XSSFSheet sheetOne = myWorkBook.getSheetAt(1);
+            XSSFSheet sheet = myWorkBook.getSheetAt(1);
 
-            //Get iterator to move through all rows in the sheet
-            Iterator<Row> rowIterator = sheetOne.iterator();
+            //Get manually iterate through all rows in the sheet
+            XSSFRow row;
 
-            int numCol = (sheetOne.getRow(0).getLastCellNum());
-            System.out.println(numCol);
+            int totalNumCol = (sheet.getRow(0).getLastCellNum());
+            System.out.println(totalNumCol);
 
             //Traverse over the row of the XLSX file
-            int rowNum = 0;
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
+            int finalRowNum = sheet.getLastRowNum();
 
+            for(int x = 0; x < finalRowNum; x++){
+                row = sheet.getRow(x);
                 spreadSheet.add(new ArrayList<String>());
-
-                //For each row iterate through the columns
-                Iterator<Cell> cellIterator = row.cellIterator();
                 String fullRow = "";
 
-                while (cellIterator.hasNext()) {
-                    Cell cell = cellIterator.next();
-                    cell.setCellType(CellType.STRING);
 
-                    if (org.apache.commons.lang3.StringUtils.isBlank(cell.getStringCellValue())) {
-                        fullRow += "[BLANK]" + "\t\t\t";
-                        spreadSheet.get(rowNum).add("[BLANK]");
+                for(int y = 0; y < totalNumCol; y++) {
+                    XSSFCell cell = row.getCell(y, MissingCellPolicy.RETURN_BLANK_AS_NULL);
+//                    cell.setCellType(CellType.STRING);
 
+                    if(cell == null){
+                        spreadSheet.get(x).add("BLANK");
+                        fullRow += "BLANK" + "\t\t\t";
                     } else {
-
                         switch (cell.getCellType()) {
                             case STRING:
                                 //System.out.println(cell.getStringCellValue() + "\t");
                                 fullRow += cell.getStringCellValue() + "\t\t\t";
-                                spreadSheet.get(rowNum).add(cell.getStringCellValue());
+                                spreadSheet.get(x).add(cell.getStringCellValue());
                                 break;
                             case NUMERIC:
                                 //System.out.println(cell.getNumericCellValue() + "\t");
                                 fullRow += cell.getNumericCellValue() + "\t\t\t";
-                                spreadSheet.get(rowNum).add(String.valueOf(cell.getNumericCellValue()));
+                                spreadSheet.get(x).add(String.valueOf(cell.getNumericCellValue()));
                                 break;
                             case BOOLEAN:
                                 //System.out.println(cell.getBooleanCellValue() + "\t");
                                 fullRow += cell.getBooleanCellValue() + "\t\t\t";
-                                spreadSheet.get(rowNum).add(String.valueOf(cell.getBooleanCellValue()));
+                                spreadSheet.get(x).add(String.valueOf(cell.getBooleanCellValue()));
                                 break;
                             case FORMULA:
                                 break;
-//                        case BLANK:
-//                            //System.out.println("[BLANK]");
-//                            fullRow += cell.getStringCellValue() + "\t\t";
-//                            spreadSheet.get(rowNum).add("[BLANK]");
-//                            break;
-//                        case _NONE:
-//                            //System.out.println(cell.getStringCellValue() + "\t");
-//                            fullRow += "[BLANK]" + "\t\t";
-//                            spreadSheet.get(rowNum).add("[BLANK]");
-//                            break;
-//
-//                        case ERROR:
-//                            break;
                             default:
                                 fullRow += "[BLANK]" + "\t\t\t";
-                                spreadSheet.get(rowNum).add("[BLANK]");
+                                spreadSheet.get(x).add("[BLANK]");
                         }
-                        /*
-                         * This is where we should put the "add extra field code"
-                         */
                     }
                 }
-
                 System.out.println(fullRow);
-                rowNum++;
             }
+
+
 
         } catch (Exception e) {
             System.out.println("error" + e);
