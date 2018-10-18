@@ -5,6 +5,10 @@
  */
 package KeyFinder;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -198,8 +202,21 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
-        KeysDialog kd = new KeysDialog();
+        final KeysDialog kd = new KeysDialog();
         kd.setVisible(true);
+        
+        kd.Attribute.addItemListener(new ItemListener(){
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+               if(ie.getStateChange()== ItemEvent.SELECTED){
+                   String a = kd.Attribute.getSelectedItem().toString();
+                   System.out.println(a);
+               }
+            }
+            
+        });
+                
+                
     }//GEN-LAST:event_searchKeysBtnActionPerformed
 
     private void searchFobsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFobsBtnActionPerformed
