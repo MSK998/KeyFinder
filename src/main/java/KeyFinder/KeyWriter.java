@@ -40,11 +40,11 @@ public class KeyWriter {
         FileInputStream file = new FileInputStream(new File("/Users/Lewis/Desktop/University/CM3108/KeyRecordsSample.xlsx"));
  
         //Get workbook for XLS file.
-        XSSFWorkbook yourworkbook = new XSSFWorkbook(file);
+        XSSFWorkbook yourWorkBook = new XSSFWorkbook(file);
  
         //Get first sheet from the workbook.
         //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
-        XSSFSheet sheet1 = yourworkbook.getSheetAt(1);
+        XSSFSheet sheet1 = yourWorkBook.getSheetAt(0);
  
         // Get the row of your desired cell.
      
@@ -68,7 +68,7 @@ public class KeyWriter {
         //Where you want to save the updated sheet.
         FileOutputStream out = 
             new FileOutputStream(new File("/Users/Lewis/Desktop/University/CM3108/KeyRecordsSample.xlsx"));
-        yourworkbook.write(out);
+        yourWorkBook.write(out);
         out.close();
  
     } catch (FileNotFoundException e) {
