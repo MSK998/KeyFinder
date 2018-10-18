@@ -197,9 +197,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 //String str = "File Loaded:\n";
                // }
                KeyFinder ld = new KeyFinder();
-               ld.loadData(); 
-               outputTextArea.append("\n");
-              // ld.displayArray();
+              ld.loadData(); 
+              
                
              //  }
     }//GEN-LAST:event_loadMenuItemActionPerformed

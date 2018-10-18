@@ -37,6 +37,7 @@ public class KeyFinder {
         for(int r = 0; r < spreadSheet.size(); r++){
             for(int c = 0; c < spreadSheet.get(r).size(); c++){
                 System.out.println(spreadSheet.get(r).get(c));
+                KeyFinderGUI.outputTextArea.append(spreadSheet.get(r).get(c));
             }
         }
     }
@@ -66,6 +67,7 @@ public class KeyFinder {
 
             int totalNumCol = (sheet.getRow(0).getLastCellNum());
             System.out.println(totalNumCol);
+            
 
             //Traverse over the row of the XLSX file
             int finalRowNum = sheet.getLastRowNum();
@@ -74,6 +76,7 @@ public class KeyFinder {
                 row = sheet.getRow(x);
                 spreadSheet.add(new ArrayList<String>());
                 String fullRow = "";
+                
 
 
                 for(int y = 0; y < totalNumCol; y++) {
@@ -83,32 +86,42 @@ public class KeyFinder {
                     if(cell == null){
                         spreadSheet.get(x).add("BLANK");
                         fullRow += "BLANK" + "\t\t\t";
+                        
                     } else {
                         switch (cell.getCellType()) {
                             case STRING:
                                 //System.out.println(cell.getStringCellValue() + "\t");
                                 fullRow += cell.getStringCellValue() + "\t\t\t";
                                 spreadSheet.get(x).add(cell.getStringCellValue());
+                                KeyFinderGUI.outputTextArea.append("\n");
+                                
+                                
                                 break;
                             case NUMERIC:
                                 //System.out.println(cell.getNumericCellValue() + "\t");
                                 fullRow += cell.getNumericCellValue() + "\t\t\t";
                                 spreadSheet.get(x).add(String.valueOf(cell.getNumericCellValue()));
+                               
+                                
                                 break;
                             case BOOLEAN:
                                 //System.out.println(cell.getBooleanCellValue() + "\t");
                                 fullRow += cell.getBooleanCellValue() + "\t\t\t";
                                 spreadSheet.get(x).add(String.valueOf(cell.getBooleanCellValue()));
+                                
+                               
                                 break;
                             case FORMULA:
                                 break;
                             default:
                                 fullRow += "[BLANK]" + "\t\t\t";
                                 spreadSheet.get(x).add("[BLANK]");
+                               
                         }
                     }
                 }
                 System.out.println(fullRow);
+                KeyFinderGUI.outputTextArea.append(fullRow);
             }
 
 
