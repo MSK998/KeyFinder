@@ -4,15 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.*;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 
 /**
@@ -42,7 +37,21 @@ public class KeyFinder {
         }
     }
 
+    public void addColumn(String fieldName, String defaultString, boolean defaultBoolean){
+        spreadSheet.get(0).add(fieldName);
 
+        /*
+        This section of the method will be dictated by the checkboxes to decide wht kind of field it is.
+        if(
+        >Certain checkbox is ticked then do string type insert
+        >else if boolean checkbox is ticked then do boolean insert
+        >else (if nothing is checked) do nothing
+        )
+        */
+        for(int x = 1; x < spreadSheet.size(); x++){
+            spreadSheet.get(x).add(defaultString);
+        }
+    }
 
     public void loadData() {
         long startTime = System.nanoTime();
@@ -81,7 +90,6 @@ public class KeyFinder {
 
                 for(int y = 0; y < totalNumCol; y++) {
                     XSSFCell cell = row.getCell(y, MissingCellPolicy.RETURN_BLANK_AS_NULL);
-//                    cell.setCellType(CellType.STRING);
 
                     if(cell == null){
                         spreadSheet.get(x).add("BLANK");
