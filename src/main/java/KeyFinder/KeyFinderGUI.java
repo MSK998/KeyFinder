@@ -9,9 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -207,13 +215,24 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         final KeysDialog kd = new KeysDialog();
         kd.setVisible(true);
        
-        
+            /* try {
+        //Get the excel file.
+        FileInputStream file = new FileInputStream(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+ 
+        //Get workbook for XLS file.
+        XSSFWorkbook yourworkbook = new XSSFWorkbook(file);
+ 
+        //Get first sheet from the workbook.
+        //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
+        final XSSFSheet sheet1 = yourworkbook.getSheetAt(1);
+ 
         kd.Attribute.addItemListener(new ItemListener(){
             @Override
             public void itemStateChanged(ItemEvent ie) {
               Object item = kd.Attribute.getSelectedItem();
               if ("Key #".equals(item)){
                   outputTextArea.append("20");
+                  Row row = sheet1.getRow(0);
               } else if ("Key Type".equals(item)){
                   outputTextArea.append("40");
                    } else if ("Allocated To".equals(item)){
@@ -223,7 +242,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                   
                    }
             }
-        });
+        }); */
                 
               
                 
