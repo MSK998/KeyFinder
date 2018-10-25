@@ -47,6 +47,25 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
+        jFrameFobs = new javax.swing.JFrame();
+        fobsJComboBox = new javax.swing.JComboBox<>();
+        inputTextField = new javax.swing.JTextField();
+        attributeLabel = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
+        fobsLabel = new javax.swing.JLabel();
+        textLabel = new javax.swing.JLabel();
+        jFrameKeys = new javax.swing.JFrame();
+        searchBtn1 = new javax.swing.JButton();
+        keysLabel = new javax.swing.JLabel();
+        Attribute = new javax.swing.JComboBox<>();
+        KeySearch = new javax.swing.JTextField();
+        attributeLabel1 = new javax.swing.JLabel();
+        jFrameLostKeys = new javax.swing.JFrame();
+        lostKeysComboBox = new javax.swing.JComboBox<>();
+        inputTextField1 = new javax.swing.JTextField();
+        searchBtn2 = new javax.swing.JButton();
+        lostKeysLabel = new javax.swing.JLabel();
+        attributeLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputTextArea = new javax.swing.JTextArea();
         searchKeysBtn = new javax.swing.JButton();
@@ -63,6 +82,183 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         saveMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         loginMenuItem = new javax.swing.JMenuItem();
+
+        jFrameFobs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        fobsJComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fobsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff/Fob Name", "Fob Number" }));
+
+        inputTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        attributeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        attributeLabel.setForeground(new java.awt.Color(153, 0, 230));
+        attributeLabel.setText("Select Attribute");
+
+        searchBtn.setText("Search");
+
+        fobsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        fobsLabel.setForeground(new java.awt.Color(153, 0, 230));
+        fobsLabel.setText("Fobs");
+
+        textLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textLabel.setForeground(new java.awt.Color(153, 0, 230));
+        textLabel.setText("Enter Text:");
+
+        javax.swing.GroupLayout jFrameFobsLayout = new javax.swing.GroupLayout(jFrameFobs.getContentPane());
+        jFrameFobs.getContentPane().setLayout(jFrameFobsLayout);
+        jFrameFobsLayout.setHorizontalGroup(
+            jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameFobsLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameFobsLayout.createSequentialGroup()
+                        .addComponent(fobsLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameFobsLayout.createSequentialGroup()
+                        .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameFobsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
+        );
+        jFrameFobsLayout.setVerticalGroup(
+            jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameFobsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fobsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        jFrameKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        searchBtn1.setText("Search");
+
+        keysLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        keysLabel.setForeground(new java.awt.Color(68, 198, 111));
+        keysLabel.setText("Keys:");
+
+        Attribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Key #", "Key Type", "Allocated To", "Location", " " }));
+        Attribute.setToolTipText("");
+        Attribute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttributeActionPerformed(evt);
+            }
+        });
+
+        KeySearch.setText("Enter Text");
+
+        attributeLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        attributeLabel1.setForeground(new java.awt.Color(68, 198, 111));
+        attributeLabel1.setText("Select Attribute");
+
+        javax.swing.GroupLayout jFrameKeysLayout = new javax.swing.GroupLayout(jFrameKeys.getContentPane());
+        jFrameKeys.getContentPane().setLayout(jFrameKeysLayout);
+        jFrameKeysLayout.setHorizontalGroup(
+            jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameKeysLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameKeysLayout.createSequentialGroup()
+                        .addComponent(keysLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameKeysLayout.createSequentialGroup()
+                        .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameKeysLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
+        );
+        jFrameKeysLayout.setVerticalGroup(
+            jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameKeysLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(keysLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(searchBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jFrameLostKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lostKeysComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        inputTextField1.setText("Enter Text");
+
+        searchBtn2.setText("Search");
+
+        lostKeysLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lostKeysLabel.setForeground(new java.awt.Color(68, 157, 191));
+        lostKeysLabel.setText("Lost Keys:");
+
+        attributeLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        attributeLabel2.setForeground(new java.awt.Color(68, 157, 191));
+        attributeLabel2.setText("Select Attribute");
+
+        javax.swing.GroupLayout jFrameLostKeysLayout = new javax.swing.GroupLayout(jFrameLostKeys.getContentPane());
+        jFrameLostKeys.getContentPane().setLayout(jFrameLostKeysLayout);
+        jFrameLostKeysLayout.setHorizontalGroup(
+            jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameLostKeysLayout.createSequentialGroup()
+                        .addComponent(lostKeysLabel)
+                        .addContainerGap(176, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameLostKeysLayout.createSequentialGroup()
+                        .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16))))
+            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jFrameLostKeysLayout.setVerticalGroup(
+            jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lostKeysLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,62 +334,54 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addGap(23, 23, 23)
-                                .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(searchFobsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                    .addComponent(searchKeysBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))
+                            .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96))
+                        .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)))
+                        .addGap(14, 14, 14)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(15, 15, 15)
                         .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(69, 69, 69))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,8 +400,10 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
-        final KeysDialog kd = new KeysDialog();
-        kd.setVisible(true);
+        jFrameKeys.show();
+        //final KeysDialog kd = new KeysDialog();
+        //kd.setVisible(true);
+        jFrameKeys.setDefaultCloseOperation(jFrameKeys.HIDE_ON_CLOSE);
        
             /* try {
         //Get the excel file.
@@ -269,8 +459,12 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchKeysBtnActionPerformed
 
     private void searchFobsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFobsBtnActionPerformed
-        FobsDialog fd = new FobsDialog();
-        fd.setVisible(true);
+        jFrameFobs.show();
+        jFrameFobs.setDefaultCloseOperation(jFrameFobs.HIDE_ON_CLOSE);
+
+        //FobsDialog fd = new FobsDialog();
+        //fd.setVisible(true);
+        //fd.setDefaultCloseOperation(fd.HIDE_ON_CLOSE);
     }//GEN-LAST:event_searchFobsBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
@@ -279,9 +473,17 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
-       LostKeysDialog lkd = new LostKeysDialog();
-       lkd.setVisible(true);
+        jFrameLostKeys.show();
+        jFrameLostKeys.setDefaultCloseOperation(jFrameLostKeys.HIDE_ON_CLOSE);
+
+        //LostKeysDialog lkd = new LostKeysDialog();
+       //lkd.setVisible(true);
+       //lkd.setDefaultCloseOperation(lkd.HIDE_ON_CLOSE);
     }//GEN-LAST:event_lostKeysBtnActionPerformed
+
+    private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
+
+    }//GEN-LAST:event_AttributeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,22 +529,41 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> Attribute;
+    public static javax.swing.JTextField KeySearch;
+    private javax.swing.JLabel attributeLabel;
+    private javax.swing.JLabel attributeLabel1;
+    private javax.swing.JLabel attributeLabel2;
     private javax.swing.JButton editBtn;
     private javax.swing.JMenu fileJMenu;
+    private javax.swing.JComboBox<String> fobsJComboBox;
+    private javax.swing.JLabel fobsLabel;
+    private javax.swing.JTextField inputTextField;
+    private javax.swing.JTextField inputTextField1;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFrame jFrameFobs;
+    private javax.swing.JFrame jFrameKeys;
+    private javax.swing.JFrame jFrameLostKeys;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel keysLabel;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JButton lostKeysBtn;
+    private javax.swing.JComboBox<String> lostKeysComboBox;
+    private javax.swing.JLabel lostKeysLabel;
     public static javax.swing.JTextArea outputTextArea;
     private javax.swing.JLabel rguLogoJLabel;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchBtn1;
+    private javax.swing.JButton searchBtn2;
     private javax.swing.JButton searchFobsBtn;
     private javax.swing.JButton searchKeysBtn;
+    private javax.swing.JLabel textLabel;
     // End of variables declaration//GEN-END:variables
 }
