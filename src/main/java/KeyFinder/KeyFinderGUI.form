@@ -7,6 +7,9 @@
     <Container class="javax.swing.JFrame" name="jFrameFobs">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
+        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+          <Rectangle value="[200, 200, 400, 300]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -57,7 +60,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="searchBtn" min="-2" pref="56" max="-2" attributes="0"/>
-                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <EmptySpace pref="64" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,6 +132,9 @@
     <Container class="javax.swing.JFrame" name="jFrameKeys">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
+        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+          <Rectangle value="[200, 200, 400, 300]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -240,6 +246,9 @@
     <Container class="javax.swing.JFrame" name="jFrameLostKeys">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
+        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+          <Rectangle value="[200, 200, 400, 300]"/>
+        </Property>
       </Properties>
 
       <Layout>

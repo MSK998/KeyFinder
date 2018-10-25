@@ -86,6 +86,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         loginMenuItem = new javax.swing.JMenuItem();
 
         jFrameFobs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrameFobs.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
 
         fobsJComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fobsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff/Fob Name", "Fob Number" }));
@@ -145,10 +146,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                     .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jFrameKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrameKeys.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
 
         searchBtn1.setText("Search");
 
@@ -209,6 +211,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         );
 
         jFrameLostKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrameLostKeys.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
 
         lostKeysComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
