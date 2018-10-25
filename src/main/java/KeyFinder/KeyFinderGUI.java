@@ -66,6 +66,24 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         searchBtn2 = new javax.swing.JButton();
         lostKeysLabel = new javax.swing.JLabel();
         attributeLabel2 = new javax.swing.JLabel();
+        jFrameAddDialog = new javax.swing.JFrame();
+        keyBtn = new javax.swing.JRadioButton();
+        fobBtn = new javax.swing.JRadioButton();
+        lostKeyBtn = new javax.swing.JRadioButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jFrameEditDialog = new javax.swing.JFrame();
+        jTextField5 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         addBtn = new javax.swing.JButton();
         rguLogoJLabel = new javax.swing.JLabel();
@@ -265,6 +283,138 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
+        jFrameAddDialog.setBounds(new java.awt.Rectangle(100, 100, 400, 480));
+
+        keyBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        keyBtn.setText("Key");
+
+        fobBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fobBtn.setText("Fob");
+
+        lostKeyBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lostKeyBtn.setText("Lost Key");
+
+        jButton1.setText("Add");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setText("Add:");
+
+        javax.swing.GroupLayout jFrameAddDialogLayout = new javax.swing.GroupLayout(jFrameAddDialog.getContentPane());
+        jFrameAddDialog.getContentPane().setLayout(jFrameAddDialogLayout);
+        jFrameAddDialogLayout.setHorizontalGroup(
+            jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                        .addGap(0, 163, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jFrameAddDialogLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fobBtn)
+                                    .addComponent(keyBtn))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                                .addComponent(lostKeyBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAddDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
+            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jFrameAddDialogLayout.setVerticalGroup(
+            jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAddDialogLayout.createSequentialGroup()
+                        .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(keyBtn))
+                        .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAddDialogLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(fobBtn)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lostKeyBtn, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+
+        jFrameEditDialog.setBounds(new java.awt.Rectangle(100, 100, 350, 490));
+
+        jButton2.setText("Delete");
+
+        jButton3.setText("Done");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel5.setText("Edit:");
+
+        javax.swing.GroupLayout jFrameEditDialogLayout = new javax.swing.GroupLayout(jFrameEditDialog.getContentPane());
+        jFrameEditDialog.getContentPane().setLayout(jFrameEditDialogLayout);
+        jFrameEditDialogLayout.setHorizontalGroup(
+            jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameEditDialogLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField8)
+                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        jFrameEditDialogLayout.setVerticalGroup(
+            jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -461,11 +611,14 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AttributeActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
+        jFrameAddDialog.show();
+        jFrameAddDialog.setDefaultCloseOperation(jFrameAddDialog.HIDE_ON_CLOSE);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        jFrameEditDialog.show();
         outputTextArea.setEditable(true);
+        jFrameEditDialog.setDefaultCloseOperation(jFrameEditDialog.HIDE_ON_CLOSE);
 
     }//GEN-LAST:event_editBtnActionPerformed
 
@@ -586,24 +739,42 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JLabel attributeLabel2;
     private javax.swing.JButton editBtn;
     private javax.swing.JMenu fileJMenu;
+    private javax.swing.JRadioButton fobBtn;
     private javax.swing.JComboBox<String> fobsJComboBox;
     private javax.swing.JLabel fobsLabel;
     private javax.swing.JTextField inputTextField;
     private javax.swing.JTextField inputTextField1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFrame jFrameAddDialog;
+    private javax.swing.JFrame jFrameEditDialog;
     private javax.swing.JFrame jFrameFobs;
     private javax.swing.JFrame jFrameKeys;
     private javax.swing.JFrame jFrameLostKeys;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JRadioButton keyBtn;
     private javax.swing.JLabel keysLabel;
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JMenuItem loginMenuItem;
+    private javax.swing.JRadioButton lostKeyBtn;
     private javax.swing.JButton lostKeysBtn;
     private javax.swing.JComboBox<String> lostKeysComboBox;
     private javax.swing.JLabel lostKeysLabel;
