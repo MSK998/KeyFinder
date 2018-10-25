@@ -214,6 +214,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
         final KeysDialog kd = new KeysDialog();
         kd.setVisible(true);
+        kd.setDefaultCloseOperation(kd.HIDE_ON_CLOSE);
        
             /* try {
         //Get the excel file.
@@ -271,6 +272,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private void searchFobsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFobsBtnActionPerformed
         FobsDialog fd = new FobsDialog();
         fd.setVisible(true);
+        fd.setDefaultCloseOperation(fd.HIDE_ON_CLOSE);
     }//GEN-LAST:event_searchFobsBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
@@ -281,6 +283,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
        LostKeysDialog lkd = new LostKeysDialog();
        lkd.setVisible(true);
+       lkd.setDefaultCloseOperation(lkd.HIDE_ON_CLOSE);
     }//GEN-LAST:event_lostKeysBtnActionPerformed
 
     /**
