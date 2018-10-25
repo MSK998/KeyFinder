@@ -66,8 +66,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        outputTextArea.setColumns(20);
-        outputTextArea.setRows(5);
+        outputTextArea.setColumns(10);
+        outputTextArea.setRows(10);
         jScrollPane1.setViewportView(outputTextArea);
 
         searchKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

@@ -37,7 +37,7 @@ public class KeyWriter {
         Scanner columnNumber = new Scanner(System.in);
             try {
         //Get the excel file.
-        FileInputStream file = new FileInputStream(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+        FileInputStream file = new FileInputStream(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
  
         //Get workbook for XLS file.
         XSSFWorkbook yourWorkBook = new XSSFWorkbook(file);
@@ -67,7 +67,7 @@ public class KeyWriter {
         file.close();
         //Where you want to save the updated sheet.
         FileOutputStream out = 
-            new FileOutputStream(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+            new FileOutputStream(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
         yourWorkBook.write(out);
         out.close();
  
@@ -79,7 +79,7 @@ public class KeyWriter {
     
   public static void main(String[] args) {
       //states the file location, will change to a relative path in the project.
-    String excelFilePath = "src\\main\\resources\\Key Records Sample.xlsx";
+    String excelFilePath = "src/main/resources/Key Records Sample.xlsx";
 
     try {
         //finds the file and sets as input stream
@@ -124,7 +124,7 @@ public class KeyWriter {
     inputStream.close();
     
     
-    FileOutputStream outputStream = new FileOutputStream("src\\main\\resources\\Key Records Sample.xlsx");
+    FileOutputStream outputStream = new FileOutputStream("src/main/resources/Key Records Sample.xlsx");
 			workbook.write(outputStream);
 			workbook.close();
 			outputStream.close();
@@ -134,7 +134,4 @@ public class KeyWriter {
 			ex.printStackTrace();
 		}
 	}
-  
-  
-
 }

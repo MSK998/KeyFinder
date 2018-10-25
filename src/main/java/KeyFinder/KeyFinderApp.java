@@ -25,17 +25,21 @@ public class KeyFinderApp extends javax.swing.JFrame {
 
 
         //Testing Methods
-      //  KeyFinder sheet1 = new KeyFinder();
-       //sheet1.loadData();
+        KeyFinder sheet1 = new KeyFinder();
+        sheet1.loadData();
 
         //System.out.println("Outputting cell:");
 
         System.out.println("____________________________________________________________________________________________");
 
-      // sheet1.displaySpecific(3,1);
-        
-        
-    //    KeyWriter sheet2 = new KeyWriter();
+       //sheet1.displaySpecific(53,1);
+
+        System.out.println("____________________________________________________________________________________________");
+
+        //sheet1.displayArray();
+
+
+        //    KeyWriter sheet2 = new KeyWriter();
       //  sheet2.updateSpecificRow(); 
 
 

@@ -350,3 +350,52 @@ public void loadData() {
 
                                             System.out.println((System.nanoTime() - startTime) / 1000000);
                                         }
+
+                                        ________________________________________________________________________________
+
+
+                                        boolean fieldCheck1 = false;
+                                                        boolean fieldCheck2 = false;
+                                                        boolean fieldCheck3 = false;
+                                                        boolean fieldCheck4 = false;
+
+
+                                                        switch(totalNumCol){
+                                                            case 1:
+                                                                fieldCheck1 = ((spreadSheet.get(x-1).get(0) == "[BLANK]") ? true : false);
+                                                                if(fieldCheck1){
+                                                                    spreadSheet.remove(x-1);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case 2:
+                                                                fieldCheck1 = ((spreadSheet.get(x).get(0) == "[BLANK]") ? true : false);
+                                                                fieldCheck2 = ((spreadSheet.get(x).get(1) == "[BLANK]") ? true : false);
+                                                                if(fieldCheck1 && fieldCheck2){
+                                                                    spreadSheet.remove(x);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case 3:
+                                                                fieldCheck1 = ((spreadSheet.get(x).get(0) == "[BLANK]") ? true : false);
+                                                                fieldCheck2 = ((spreadSheet.get(x).get(1) == "[BLANK]") ? true : false);
+                                                                fieldCheck3 = ((spreadSheet.get(x).get(2) == "[BLANK]") ? true : false);
+                                                                if(fieldCheck1 && fieldCheck2 && fieldCheck3){
+                                                                    spreadSheet.remove(x);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case 4:
+                                                                fieldCheck1 = ((spreadSheet.get(x).get(0) == "[BLANK]") ? true : false);
+                                                                fieldCheck2 = ((spreadSheet.get(x).get(1) == "[BLANK]") ? true : false);
+                                                                fieldCheck3 = ((spreadSheet.get(x).get(2) == "[BLANK]") ? true : false);
+                                                                fieldCheck4 = ((spreadSheet.get(x).get(3) == "[BLANK]") ? true : false);
+                                                                if(fieldCheck1 && fieldCheck2 && fieldCheck3 && fieldCheck4 ){
+                                                                    spreadSheet.remove(x);
+                                                                    break;
+                                                                }
+                                                                break;
+
+                                                                default:
+
+                                                        }

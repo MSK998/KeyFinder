@@ -28,13 +28,20 @@ public class KeyFinder {
         System.out.println(spreadSheet.get(y).get(x));
     }
 
-    public void displayArray(){
+    public String displayArray(){
+
         for(int r = 0; r < spreadSheet.size(); r++){
+
+            String fullRows = "";
+
             for(int c = 0; c < spreadSheet.get(r).size(); c++){
-                System.out.println(spreadSheet.get(r).get(c));
+
+                fullRows += (spreadSheet.get(r).get(c));
                 KeyFinderGUI.outputTextArea.append(spreadSheet.get(r).get(c));
             }
+            return fullRows;
         }
+        return "Finished";
     }
 
     public void addColumn(String fieldName, String defaultString, boolean defaultBoolean){
@@ -61,7 +68,7 @@ public class KeyFinder {
          * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
          */
         try {
-            File myFile = new File(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
+            File myFile = new File(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
 
             FileInputStream fis = new FileInputStream(myFile);
 
@@ -92,8 +99,8 @@ public class KeyFinder {
                     XSSFCell cell = row.getCell(y, MissingCellPolicy.RETURN_BLANK_AS_NULL);
 
                     if(cell == null){
-                        spreadSheet.get(x).add("BLANK");
-                        fullRow += "BLANK" + "\t\t\t";
+                        spreadSheet.get(x).add("[BLANK]");
+                        fullRow += "[BLANK]" + "\t\t\t";
                         
                     } else {
                         switch (cell.getCellType()) {
@@ -131,8 +138,6 @@ public class KeyFinder {
                 System.out.println(fullRow);
                 KeyFinderGUI.outputTextArea.append(fullRow);
             }
-
-
 
         } catch (Exception e) {
             System.out.println("error" + e);
