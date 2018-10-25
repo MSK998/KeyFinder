@@ -66,16 +66,18 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         searchBtn2 = new javax.swing.JButton();
         lostKeysLabel = new javax.swing.JLabel();
         attributeLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        addBtn = new javax.swing.JButton();
+        rguLogoJLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        editBtn = new javax.swing.JButton();
+        lostKeysBtn = new javax.swing.JButton();
+        searchFobsBtn = new javax.swing.JButton();
+        searchKeysBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputTextArea = new javax.swing.JTextArea();
-        searchKeysBtn = new javax.swing.JButton();
-        searchFobsBtn = new javax.swing.JButton();
-        lostKeysBtn = new javax.swing.JButton();
-        editBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        rguLogoJLabel = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
         loadMenuItem = new javax.swing.JMenuItem();
@@ -262,35 +264,31 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        outputTextArea.setColumns(10);
-        outputTextArea.setRows(10);
-        jScrollPane1.setViewportView(outputTextArea);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setToolTipText("");
+        jPanel1.setMinimumSize(new java.awt.Dimension(1980, 1080));
 
-        searchKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        searchKeysBtn.setText("Search Keys");
-        searchKeysBtn.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.setBackground(new java.awt.Color(77, 0, 77));
+        addBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(255, 255, 255));
+        addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchKeysBtnActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
 
-        searchFobsBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        searchFobsBtn.setText("Search Fobs");
-        searchFobsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchFobsBtnActionPerformed(evt);
-            }
-        });
+        rguLogoJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/New_RGU_logo.jpg"))); // NOI18N
 
-        lostKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lostKeysBtn.setText("Lost Keys");
-        lostKeysBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lostKeysBtnActionPerformed(evt);
-            }
-        });
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/questionMark_pic.png"))); // NOI18N
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key_pic.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fob_pic.png"))); // NOI18N
+
+        editBtn.setBackground(new java.awt.Color(77, 0, 77));
         editBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        editBtn.setForeground(new java.awt.Color(255, 255, 255));
         editBtn.setText("Edit");
         editBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,13 +296,115 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fob_pic.png"))); // NOI18N
+        lostKeysBtn.setBackground(new java.awt.Color(148, 50, 129));
+        lostKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lostKeysBtn.setForeground(new java.awt.Color(255, 255, 255));
+        lostKeysBtn.setText("Lost Keys");
+        lostKeysBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lostKeysBtnActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/key_pic.png"))); // NOI18N
+        searchFobsBtn.setBackground(new java.awt.Color(148, 50, 129));
+        searchFobsBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        searchFobsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        searchFobsBtn.setText("Search Fobs");
+        searchFobsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFobsBtnActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/questionMark_pic.png"))); // NOI18N
+        searchKeysBtn.setBackground(new java.awt.Color(148, 50, 129));
+        searchKeysBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        searchKeysBtn.setForeground(new java.awt.Color(255, 255, 255));
+        searchKeysBtn.setText("Search Keys");
+        searchKeysBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchKeysBtnActionPerformed(evt);
+            }
+        });
 
-        rguLogoJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/New_RGU_logo.jpg"))); // NOI18N
+        outputTextArea.setEditable(false);
+        outputTextArea.setBackground(new java.awt.Color(204, 204, 204));
+        outputTextArea.setColumns(20);
+        outputTextArea.setRows(5);
+        jScrollPane1.setViewportView(outputTextArea);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(146, 146, 146)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1820, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(174, 174, 174))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(915, Short.MAX_VALUE)))
+        );
 
         fileJMenu.setText("File");
 
@@ -331,57 +431,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(114, 114, 114))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1598, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(rguLogoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -399,64 +453,27 @@ public class KeyFinderGUI extends javax.swing.JFrame {
              //  }
     }//GEN-LAST:event_loadMenuItemActionPerformed
 
-    private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
-        jFrameKeys.show();
-        //final KeysDialog kd = new KeysDialog();
-        //kd.setVisible(true);
-        jFrameKeys.setDefaultCloseOperation(jFrameKeys.HIDE_ON_CLOSE);
-       
-            /* try {
-        //Get the excel file.
-        FileInputStream file = new FileInputStream(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
- 
-        //Get workbook for XLS file.
-        XSSFWorkbook yourworkbook = new XSSFWorkbook(file);
- 
-        //Get first sheet from the workbook.
-        //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
-        final XSSFSheet sheet1 = yourworkbook.getSheetAt(1);
- 
-        kd.Attribute.addItemListener(new ItemListener(){
-            @Override
-            public void itemStateChanged(ItemEvent ie) {
-              Object item = kd.Attribute.getSelectedItem();
-              if ("Key #".equals(item)){
-                  outputTextArea.append("20");
-                  Row row = sheet1.getRow(0);
-              } else if ("Key Type".equals(item)){
-                  outputTextArea.append("40");
-                   } else if ("Allocated To".equals(item)){
-                  outputTextArea.append("45");
-                   } else if ("Location".equals(item)){
-                  outputTextArea.append("60");
-                  
-                   }
-            }
-        }); */
-                
-              
-                
-                
-                //if(ie.getStateChange()== ItemEvent.SELECTED){
-                   //a = kd.Attribute.getSelectedItem().toString();
-                   //outputTextArea.append(a);
-                  
-                   
-                 
-                   
-                //  }
-               
-               
-             
-               
-               
-               
-          //  }
-            
-     //   });
-                
-                
-    }//GEN-LAST:event_searchKeysBtnActionPerformed
+    private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
+
+    }//GEN-LAST:event_AttributeActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        outputTextArea.setEditable(true);
+
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
+        jFrameLostKeys.show();
+        jFrameLostKeys.setDefaultCloseOperation(jFrameLostKeys.HIDE_ON_CLOSE);
+
+        //LostKeysDialog lkd = new LostKeysDialog();
+        //lkd.setVisible(true);
+        //lkd.setDefaultCloseOperation(lkd.HIDE_ON_CLOSE);
+    }//GEN-LAST:event_lostKeysBtnActionPerformed
 
     private void searchFobsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFobsBtnActionPerformed
         jFrameFobs.show();
@@ -467,23 +484,52 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         //fd.setDefaultCloseOperation(fd.HIDE_ON_CLOSE);
     }//GEN-LAST:event_searchFobsBtnActionPerformed
 
-    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-        outputTextArea.setEditable(true);
-        
-    }//GEN-LAST:event_editBtnActionPerformed
+    private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
+        jFrameKeys.show();
+        //final KeysDialog kd = new KeysDialog();
+        //kd.setVisible(true);
+        jFrameKeys.setDefaultCloseOperation(jFrameKeys.HIDE_ON_CLOSE);
 
-    private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
-        jFrameLostKeys.show();
-        jFrameLostKeys.setDefaultCloseOperation(jFrameLostKeys.HIDE_ON_CLOSE);
+        /* try {
+            //Get the excel file.
+            FileInputStream file = new FileInputStream(new File("src\\main\\resources\\Key Records Sample.xlsx").getAbsolutePath());
 
-        //LostKeysDialog lkd = new LostKeysDialog();
-       //lkd.setVisible(true);
-       //lkd.setDefaultCloseOperation(lkd.HIDE_ON_CLOSE);
-    }//GEN-LAST:event_lostKeysBtnActionPerformed
+            //Get workbook for XLS file.
+            XSSFWorkbook yourworkbook = new XSSFWorkbook(file);
 
-    private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
+            //Get first sheet from the workbook.
+            //If there have >1 sheet in your workbook, you can change it here IF you want to edit other sheets.
+            final XSSFSheet sheet1 = yourworkbook.getSheetAt(1);
 
-    }//GEN-LAST:event_AttributeActionPerformed
+            kd.Attribute.addItemListener(new ItemListener(){
+                @Override
+                public void itemStateChanged(ItemEvent ie) {
+                    Object item = kd.Attribute.getSelectedItem();
+                    if ("Key #".equals(item)){
+                        outputTextArea.append("20");
+                        Row row = sheet1.getRow(0);
+                    } else if ("Key Type".equals(item)){
+                        outputTextArea.append("40");
+                    } else if ("Allocated To".equals(item)){
+                        outputTextArea.append("45");
+                    } else if ("Location".equals(item)){
+                        outputTextArea.append("60");
+
+                    }
+                }
+            }); */
+
+            //if(ie.getStateChange()== ItemEvent.SELECTED){
+                //a = kd.Attribute.getSelectedItem().toString();
+                //outputTextArea.append(a);
+
+                //  }
+
+            //  }
+
+        //   });
+
+    }//GEN-LAST:event_searchKeysBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -531,6 +577,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> Attribute;
     public static javax.swing.JTextField KeySearch;
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel attributeLabel;
     private javax.swing.JLabel attributeLabel1;
     private javax.swing.JLabel attributeLabel2;
@@ -548,6 +595,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel keysLabel;
