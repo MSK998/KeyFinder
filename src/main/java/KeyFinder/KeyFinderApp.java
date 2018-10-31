@@ -26,7 +26,7 @@ public class KeyFinderApp extends javax.swing.JFrame {
 
         //Testing Methods
         KeyFinder sheet1 = new KeyFinder();
-        sheet1.loadData();
+        //sheet1.loadData();
 
         //System.out.println("Outputting cell:");
 

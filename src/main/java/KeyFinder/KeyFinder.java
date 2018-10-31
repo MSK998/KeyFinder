@@ -2,13 +2,21 @@ package KeyFinder;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 /**
  * KeyFinder.KeyFinder Database Handler Module was created by Mark Scott-Kiddie and Lewis Ross on 04/10/2018.
@@ -146,4 +154,65 @@ public class KeyFinder {
 
         System.out.println((System.nanoTime() - startTime) / 1000000);
     }
-}
+    
+  public void keywrite(){
+        KeyFinderGUI key = new KeyFinderGUI();
+          String excelFilePath = "src/main/resources/Key Records Sample.xlsx";
+
+    try {
+        //finds the file and sets as input stream
+    FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
+    //sets workbook and sheet
+    Workbook workbook = WorkbookFactory.create(inputStream);
+    
+    Sheet sheet = workbook.getSheetAt(1);
+
+    //test data
+    Object[][] newKeys = {
+        {key.jTextField1.getText(), key.jTextField2.getText(), key.jTextField3.getText(), key.jTextField4.getText() },
+        
+           
+    };
+     System.out.println(key.jTextField1.getText());
+
+    //finds the amount of rows in the sheet
+    int rowCount = sheet.getLastRowNum();
+
+    //for the object row
+    for (Object[] aKey : newKeys) {
+        Row row = sheet.createRow(++rowCount);
+            
+        
+        //column count set to 0
+       int columnCount = 0;
+
+        for (Object field : aKey) {
+            Cell cell = row.createCell(columnCount++);
+            if (field instanceof String) {
+                cell.setCellValue((String) field);
+            } else if (field instanceof Integer) {
+                cell.setCellValue((Integer) field);
+                
+            }
+        }
+                
+    }
+    
+    inputStream.close();
+    
+    
+    FileOutputStream outputStream = new FileOutputStream("src/main/resources/Key Records Sample.xlsx");
+			workbook.write(outputStream);
+			workbook.close();
+			outputStream.close();
+                       
+			
+		} catch (IOException |
+                        EncryptedDocumentException  ex) {
+			ex.printStackTrace();
+		}
+	}
+ 
+    }
+
+
