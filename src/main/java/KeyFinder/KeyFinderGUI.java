@@ -104,7 +104,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         cancelBtn = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
-        loadMenuItem = new javax.swing.JMenuItem();
+        loadKeyItem = new javax.swing.JMenuItem();
+        LoadFobItem = new javax.swing.JMenuItem();
+        LoadLostItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         loginMenuItem = new javax.swing.JMenuItem();
@@ -639,13 +641,29 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         fileJMenu.setText("File");
 
-        loadMenuItem.setText("Load");
-        loadMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        loadKeyItem.setText("Load Keys");
+        loadKeyItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadMenuItemActionPerformed(evt);
+                loadKeyItemActionPerformed(evt);
             }
         });
-        fileJMenu.add(loadMenuItem);
+        fileJMenu.add(loadKeyItem);
+
+        LoadFobItem.setText("Load Fobs");
+        LoadFobItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadFobItemActionPerformed(evt);
+            }
+        });
+        fileJMenu.add(LoadFobItem);
+
+        LoadLostItem.setText("Load lost keys");
+        LoadLostItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadLostItemActionPerformed(evt);
+            }
+        });
+        fileJMenu.add(LoadLostItem);
 
         saveMenuItem.setText("Save");
         fileJMenu.add(saveMenuItem);
@@ -675,17 +693,17 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadMenuItemActionPerformed
+    private void loadKeyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadKeyItemActionPerformed
   
              // if (this.jFileChooser1.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 //String str = "File Loaded:\n";
                // }
                KeyFinder ld = new KeyFinder();
-              ld.loadData(); 
+              ld.loadKeyData(); 
               
                
              //  }
-    }//GEN-LAST:event_loadMenuItemActionPerformed
+    }//GEN-LAST:event_loadKeyItemActionPerformed
 
     private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
 
@@ -810,7 +828,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
              addingItem.add(jTextField3.getText());
              add.keywrite();
              outputTextArea.setText(null);
-             add.loadData();
+             add.loadKeyData();
             
              
             //add to key spreadsheet
@@ -822,7 +840,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                   
             addingItem.add(jTextField1.getText());        
             addingItem.add(jTextField4.getText());     
-            
+            add.fobWrite();
+            outputTextArea.setText(null);
+            add.loadFobs();
             //add to fob spreadsheet
         }
         
@@ -831,7 +851,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             addingItem.add(jTextField1.getText());        
             addingItem.add(jTextField4.getText());               
             addingItem.add(jTextField2.getText()); 
-             
+             add.lostKeyWrite();
+             outputTextArea.setText(null);
+             add.loadLost();
              
              //add to lost keys spreadsheet
         }
@@ -845,7 +867,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         KeyFinder save = new KeyFinder();
-        save.loadData();
+        //save.loadData();
         outputTextArea.setEditable(false);
         cancelBtn.setVisible(false);
         saveBtn.setVisible(false);
@@ -857,7 +879,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         outputTextArea.setText(null);
         KeyFinder cancel = new KeyFinder();
-        cancel.loadData();
+       // cancel.loadData();
         outputTextArea.setEditable(false);
         cancelBtn.setVisible(false);
         saveBtn.setVisible(false);
@@ -865,6 +887,19 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         addBtn.setVisible(true);
         
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void LoadFobItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadFobItemActionPerformed
+     KeyFinder fob = new KeyFinder();
+     
+     fob.loadFobs();
+     
+    }//GEN-LAST:event_LoadFobItemActionPerformed
+
+    private void LoadLostItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadLostItemActionPerformed
+            KeyFinder lost = new KeyFinder();
+            
+            lost.loadLost();
+    }//GEN-LAST:event_LoadLostItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -912,6 +947,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> Attribute;
     public static javax.swing.JTextField KeySearch;
+    private javax.swing.JMenuItem LoadFobItem;
+    private javax.swing.JMenuItem LoadLostItem;
     private javax.swing.JButton addBtn;
     private javax.swing.JButton addExcelBtn;
     private javax.swing.JLabel attributeLabel;
@@ -957,7 +994,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JRadioButton keyBtn;
     private javax.swing.JLabel keysLabel;
-    private javax.swing.JMenuItem loadMenuItem;
+    private javax.swing.JMenuItem loadKeyItem;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JRadioButton lostKeyBtn;
     private javax.swing.JButton lostKeysBtn;
