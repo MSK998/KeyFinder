@@ -399,3 +399,50 @@ public void loadData() {
                                                                 default:
 
                                                         }
+
+
+
+
+
+
+
+
+    KeyFinder searchKey = new KeyFinder();
+           try {
+            File myFile = new File(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
+
+            FileInputStream fis = new FileInputStream(myFile);
+
+            //Finds the workbook instance for XLSX file
+            XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+
+            //Return first sheet from the XLSX workbook
+            XSSFSheet sheet = myWorkBook.getSheetAt(1);
+
+            //Get manually iterate through all rows in the sheet
+            
+            int totalNoOfCols = sheet.getColumns();
+            Row row = null;
+            Cell column;
+        
+         /*  Object item = KeyAttribute.getSelectedItem();
+            if("Key #".equals(item)){
+                column = row.getCell(0);
+                System.out.println("hello");
+            } else if ("Key Type".equals(item)){
+                row.getCell(1);
+                System.out.println("good");
+            } else if ("Allocated To".equals(item)) {
+                row.getCell(2);
+                System.out.println("g");
+            } else if ("Location".equals(item)){
+                row.getCell(3);
+                System.out.println("60");
+            } */
+            
+             } catch (IOException |
+                        EncryptedDocumentException  ex) {
+			ex.printStackTrace(); 
+            
+ 
+             } 

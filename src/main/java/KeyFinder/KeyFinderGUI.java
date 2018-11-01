@@ -7,24 +7,21 @@ package KeyFinder;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 /**
  *
  * @author Scott's PC
  */
 public class KeyFinderGUI extends javax.swing.JFrame {
-   String a;
-
     /**
      * Creates new form KeyGUI
      */
@@ -32,7 +29,13 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         initComponents();
         outputTextArea.setEditable(false);
         saveBtn.setVisible(false);
-        cancelBtn.setVisible(false);
+        cancelKeys.setVisible(false);
+        editKeys.setVisible(false);
+        editFobs.setVisible(false);
+        editLostKeys.setVisible(false);
+        cancelFobs.setVisible(false);
+        cancelLostKeys.setVisible(false);
+        
        
     }
 
@@ -54,9 +57,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         fobsLabel = new javax.swing.JLabel();
         textLabel = new javax.swing.JLabel();
         jFrameKeys = new javax.swing.JFrame();
-        searchBtn1 = new javax.swing.JButton();
+        keySearchBtn = new javax.swing.JButton();
         keysLabel = new javax.swing.JLabel();
-        Attribute = new javax.swing.JComboBox<>();
+        KeyAttribute = new javax.swing.JComboBox<>();
         KeySearch = new javax.swing.JTextField();
         attributeLabel1 = new javax.swing.JLabel();
         jFrameLostKeys = new javax.swing.JFrame();
@@ -94,14 +97,19 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        editBtn = new javax.swing.JButton();
+        editKeys = new javax.swing.JButton();
         lostKeysBtn = new javax.swing.JButton();
         searchFobsBtn = new javax.swing.JButton();
         searchKeysBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputTextArea = new javax.swing.JTextArea();
         saveBtn = new javax.swing.JButton();
-        cancelBtn = new javax.swing.JButton();
+        cancelKeys = new javax.swing.JButton();
+        editFobs = new javax.swing.JButton();
+        editLostKeys = new javax.swing.JButton();
+        cancelFobs = new javax.swing.JButton();
+        cancelLostKeys = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
         loadKeyItem = new javax.swing.JMenuItem();
@@ -178,21 +186,31 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jFrameKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrameKeys.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
 
-        searchBtn1.setText("Search");
+        keySearchBtn.setText("Search");
+        keySearchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keySearchBtnActionPerformed(evt);
+            }
+        });
 
         keysLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         keysLabel.setForeground(new java.awt.Color(68, 198, 111));
         keysLabel.setText("Keys:");
 
-        Attribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Key #", "Key Type", "Allocated To", "Location", " " }));
-        Attribute.setToolTipText("");
-        Attribute.addActionListener(new java.awt.event.ActionListener() {
+        KeyAttribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Key #", "Key Type", "Allocated To", "Location", "" }));
+        KeyAttribute.setToolTipText("");
+        KeyAttribute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AttributeActionPerformed(evt);
+                KeyAttributeActionPerformed(evt);
             }
         });
 
         KeySearch.setText("Enter Text");
+        KeySearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeySearchActionPerformed(evt);
+            }
+        });
 
         attributeLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         attributeLabel1.setForeground(new java.awt.Color(68, 198, 111));
@@ -212,12 +230,12 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                         .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameKeysLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
         );
         jFrameKeysLayout.setVerticalGroup(
@@ -230,9 +248,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Attribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addComponent(searchBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
@@ -491,13 +509,13 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fob_pic.png"))); // NOI18N
 
-        editBtn.setBackground(new java.awt.Color(77, 0, 77));
-        editBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        editBtn.setForeground(new java.awt.Color(255, 255, 255));
-        editBtn.setText("Edit");
-        editBtn.addActionListener(new java.awt.event.ActionListener() {
+        editKeys.setBackground(new java.awt.Color(77, 0, 77));
+        editKeys.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        editKeys.setForeground(new java.awt.Color(255, 255, 255));
+        editKeys.setText("Edit");
+        editKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtnActionPerformed(evt);
+                editKeysActionPerformed(evt);
             }
         });
 
@@ -544,10 +562,54 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
-        cancelBtn.setText("Cancel");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+        cancelKeys.setText("Cancel");
+        cancelKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnActionPerformed(evt);
+                cancelKeysActionPerformed(evt);
+            }
+        });
+
+        editFobs.setBackground(new java.awt.Color(77, 0, 77));
+        editFobs.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        editFobs.setForeground(new java.awt.Color(255, 255, 255));
+        editFobs.setText("Edit");
+        editFobs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editFobsActionPerformed(evt);
+            }
+        });
+
+        editLostKeys.setBackground(new java.awt.Color(77, 0, 77));
+        editLostKeys.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        editLostKeys.setForeground(new java.awt.Color(255, 255, 255));
+        editLostKeys.setText("Edit");
+        editLostKeys.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLostKeysActionPerformed(evt);
+            }
+        });
+
+        cancelFobs.setText("Cancel");
+        cancelFobs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelFobsActionPerformed(evt);
+            }
+        });
+
+        cancelLostKeys.setText("Cancel");
+        cancelLostKeys.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelLostKeysActionPerformed(evt);
+            }
+        });
+
+        clear.setBackground(new java.awt.Color(77, 0, 77));
+        clear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clear.setForeground(new java.awt.Color(255, 255, 255));
+        clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
             }
         });
 
@@ -555,37 +617,45 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(68, 68, 68)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(editLostKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editFobs, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(792, 792, 792)
+                .addGap(587, 587, 587)
                 .addComponent(saveBtn)
-                .addGap(280, 280, 280)
-                .addComponent(cancelBtn)
+                .addGap(83, 83, 83)
+                .addComponent(cancelKeys)
+                .addGap(29, 29, 29)
+                .addComponent(cancelFobs)
+                .addGap(40, 40, 40)
+                .addComponent(cancelLostKeys)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(18, 18, 18)
+                            .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -595,8 +665,27 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(editKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editLostKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editFobs, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(92, 92, 92)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveBtn)
+                    .addComponent(cancelKeys)
+                    .addComponent(cancelFobs)
+                    .addComponent(cancelLostKeys))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -617,21 +706,6 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(174, 174, 174))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveBtn)
-                    .addComponent(cancelBtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -681,50 +755,51 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadKeyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadKeyItemActionPerformed
-  
-             // if (this.jFileChooser1.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                //String str = "File Loaded:\n";
-               // }
+
                KeyFinder ld = new KeyFinder();
               ld.loadKeyData(); 
-              
-               
-             //  }
+              editKeys.setVisible(true);
+              LoadFobItem.setVisible(false);
+              LoadLostItem.setVisible(false);
     }//GEN-LAST:event_loadKeyItemActionPerformed
 
-    private void AttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttributeActionPerformed
+    private void KeyAttributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeyAttributeActionPerformed
 
-    }//GEN-LAST:event_AttributeActionPerformed
+    }//GEN-LAST:event_KeyAttributeActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         jFrameAddDialog.show();
         jFrameAddDialog.setDefaultCloseOperation(jFrameAddDialog.HIDE_ON_CLOSE);
     }//GEN-LAST:event_addBtnActionPerformed
 
-    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+    private void editKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editKeysActionPerformed
         jFrameEditDialog.show();
         outputTextArea.setEditable(true);
         jFrameEditDialog.setDefaultCloseOperation(jFrameEditDialog.HIDE_ON_CLOSE);
         
-        editBtn.setVisible(false);
+        editKeys.setVisible(false);
+        editLostKeys.setVisible(false);
+        editFobs.setVisible(false);
         addBtn.setVisible(false);
         saveBtn.setVisible(true);
-        cancelBtn.setVisible(true);
+        cancelKeys.setVisible(true);
 
-    }//GEN-LAST:event_editBtnActionPerformed
+    }//GEN-LAST:event_editKeysActionPerformed
 
     private void lostKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lostKeysBtnActionPerformed
         jFrameLostKeys.show();
@@ -745,12 +820,15 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchFobsBtnActionPerformed
 
     private void searchKeysBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchKeysBtnActionPerformed
-        jFrameKeys.show();
+
+
         //final KeysDialog kd = new KeysDialog();
         //kd.setVisible(true);
+        jFrameKeys.show();
         jFrameKeys.setDefaultCloseOperation(jFrameKeys.HIDE_ON_CLOSE);
-
-       
+               
+      
+    
 
     }//GEN-LAST:event_searchKeysBtnActionPerformed
 
@@ -869,37 +947,142 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         KeyFinder save = new KeyFinder();
         //save.loadData();
         outputTextArea.setEditable(false);
-        cancelBtn.setVisible(false);
+        cancelKeys.setVisible(false);
         saveBtn.setVisible(false);
-        editBtn.setVisible(true);
+        editKeys.setVisible(true);
         addBtn.setVisible(true);
         
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+    private void cancelKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelKeysActionPerformed
         outputTextArea.setText(null);
         KeyFinder cancel = new KeyFinder();
-       // cancel.loadData();
+         cancel.loadKeyData();
         outputTextArea.setEditable(false);
-        cancelBtn.setVisible(false);
+        cancelKeys.setVisible(false);
         saveBtn.setVisible(false);
-        editBtn.setVisible(true);
+        editKeys.setVisible(true);
         addBtn.setVisible(true);
         
-    }//GEN-LAST:event_cancelBtnActionPerformed
+    }//GEN-LAST:event_cancelKeysActionPerformed
 
     private void LoadFobItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadFobItemActionPerformed
      KeyFinder fob = new KeyFinder();
      
      fob.loadFobs();
+     loadKeyItem.setVisible(false);
+     LoadLostItem.setVisible(false);
+     editFobs.setVisible(true);
      
     }//GEN-LAST:event_LoadFobItemActionPerformed
 
     private void LoadLostItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadLostItemActionPerformed
             KeyFinder lost = new KeyFinder();
-            
             lost.loadLost();
+            loadKeyItem.setVisible(false);
+            LoadLostItem.setVisible(false);
+            editLostKeys.setVisible(true);
     }//GEN-LAST:event_LoadLostItemActionPerformed
+
+    private void KeySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeySearchActionPerformed
+            
+    }//GEN-LAST:event_KeySearchActionPerformed
+
+    private void keySearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keySearchBtnActionPerformed
+            
+ 
+           
+             try {
+           File myFile = new File(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
+           
+           FileInputStream fis = new FileInputStream(myFile);
+           
+           //Finds the workbook instance for XLSX file
+           XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
+           
+           //Return first sheet from the XLSX workbook
+           XSSFSheet sheet = myWorkBook.getSheetAt(1);
+           
+           //Get manually iterate through all rows in the sheet
+           Row row = sheet.getRow(3);
+           Object item = KeyAttribute.getSelectedItem();
+           if("Key #".equals(item)){
+           System.out.println("hello");
+           Cell column = row.getCell(0);
+           } else if ("Key Type".equals(item)){
+           System.out.println("good");
+           Cell column = row.getCell(1);
+           } else if ("Allocated To".equals(item)) {
+           System.out.println("g");
+           Cell column = row.getCell(2);
+           } else if ("Location".equals(item)){
+           System.out.println("60");
+           Cell column = row.getCell(3);
+           System.out.println(column.getStringCellValue());         
+           }
+         
+           
+           
+           } catch (IOException |
+           EncryptedDocumentException  ex) {
+           ex.printStackTrace();
+           
+           
+           }
+
+    }//GEN-LAST:event_keySearchBtnActionPerformed
+
+    private void editFobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFobsActionPerformed
+      outputTextArea.setEditable(true);
+        jFrameEditDialog.setDefaultCloseOperation(jFrameEditDialog.HIDE_ON_CLOSE);
+        
+        editFobs.setVisible(false);
+        editKeys.setVisible(false);
+        editLostKeys.setVisible(false);
+        addBtn.setVisible(false);
+        saveBtn.setVisible(true);
+        cancelFobs.setVisible(true);
+
+    }//GEN-LAST:event_editFobsActionPerformed
+
+    private void editLostKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLostKeysActionPerformed
+             outputTextArea.setEditable(true);
+        jFrameEditDialog.setDefaultCloseOperation(jFrameEditDialog.HIDE_ON_CLOSE);
+        
+        editLostKeys.setVisible(false);
+        addBtn.setVisible(false);
+        saveBtn.setVisible(true);
+        editKeys.setVisible(false);
+        editFobs.setVisible(false);
+        cancelLostKeys.setVisible(true);
+
+    }//GEN-LAST:event_editLostKeysActionPerformed
+
+    private void cancelFobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelFobsActionPerformed
+           outputTextArea.setText(null);
+        KeyFinder cancel = new KeyFinder();
+         cancel.loadFobs();
+        outputTextArea.setEditable(false);
+        cancelFobs.setVisible(false);
+        saveBtn.setVisible(false);
+        editKeys.setVisible(true);
+        addBtn.setVisible(true);
+    }//GEN-LAST:event_cancelFobsActionPerformed
+
+    private void cancelLostKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelLostKeysActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelLostKeysActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+       outputTextArea.setText(null);
+       loadKeyItem.setVisible(true);
+        LoadLostItem.setVisible(true);
+       LoadFobItem.setVisible(true);
+        editFobs.setVisible(false);
+        editKeys.setVisible(false);
+        editLostKeys.setVisible(false);
+        
+    }//GEN-LAST:event_clearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -945,8 +1128,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> Attribute;
-    public static javax.swing.JTextField KeySearch;
+    public javax.swing.JComboBox<String> KeyAttribute;
+    public javax.swing.JTextField KeySearch;
     private javax.swing.JMenuItem LoadFobItem;
     private javax.swing.JMenuItem LoadLostItem;
     private javax.swing.JButton addBtn;
@@ -955,8 +1138,13 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JLabel attributeLabel1;
     private javax.swing.JLabel attributeLabel2;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton cancelBtn;
-    private javax.swing.JButton editBtn;
+    private javax.swing.JButton cancelFobs;
+    private javax.swing.JButton cancelKeys;
+    private javax.swing.JButton cancelLostKeys;
+    private javax.swing.JButton clear;
+    private javax.swing.JButton editFobs;
+    private javax.swing.JButton editKeys;
+    private javax.swing.JButton editLostKeys;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JRadioButton fobBtn;
     private javax.swing.JComboBox<String> fobsJComboBox;
@@ -969,7 +1157,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     public javax.swing.JFrame jFrameAddDialog;
     private javax.swing.JFrame jFrameEditDialog;
     private javax.swing.JFrame jFrameFobs;
-    private javax.swing.JFrame jFrameKeys;
+    public javax.swing.JFrame jFrameKeys;
     private javax.swing.JFrame jFrameLostKeys;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -993,6 +1181,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JRadioButton keyBtn;
+    public javax.swing.JButton keySearchBtn;
     private javax.swing.JLabel keysLabel;
     private javax.swing.JMenuItem loadKeyItem;
     private javax.swing.JMenuItem loginMenuItem;
@@ -1005,7 +1194,6 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JButton saveBtn;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JButton searchBtn;
-    private javax.swing.JButton searchBtn1;
     private javax.swing.JButton searchBtn2;
     private javax.swing.JButton searchFobsBtn;
     private javax.swing.JButton searchKeysBtn;
