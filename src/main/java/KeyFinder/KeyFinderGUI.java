@@ -35,6 +35,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         editLostKeys.setVisible(false);
         cancelFobs.setVisible(false);
         cancelLostKeys.setVisible(false);
+        logoutBtn.setVisible(false);
+        addBtn.setVisible(false);
         
        
     }
@@ -91,6 +93,13 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        jFrameLogin = new javax.swing.JFrame();
+        jLabel10 = new javax.swing.JLabel();
+        usernameBox = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        loginBtn = new javax.swing.JButton();
+        cancelLogin = new javax.swing.JButton();
+        passwordBox = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         addBtn = new javax.swing.JButton();
         rguLogoJLabel = new javax.swing.JLabel();
@@ -110,6 +119,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         cancelFobs = new javax.swing.JButton();
         cancelLostKeys = new javax.swing.JButton();
         clear = new javax.swing.JButton();
+        loginState = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
         loadKeyItem = new javax.swing.JMenuItem();
@@ -118,6 +128,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         saveMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         loginMenuItem = new javax.swing.JMenuItem();
+        logoutBtn = new javax.swing.JMenuItem();
 
         jFrameFobs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrameFobs.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
@@ -434,6 +445,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jFrameEditDialog.setBounds(new java.awt.Rectangle(100, 100, 350, 490));
 
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Done");
 
@@ -483,6 +499,66 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
+        );
+
+        jFrameLogin.setMinimumSize(new java.awt.Dimension(272, 350));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Username:");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Password:");
+
+        loginBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtnActionPerformed(evt);
+            }
+        });
+
+        cancelLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cancelLogin.setText("Cancel");
+        cancelLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrameLoginLayout = new javax.swing.GroupLayout(jFrameLogin.getContentPane());
+        jFrameLogin.getContentPane().setLayout(jFrameLoginLayout);
+        jFrameLoginLayout.setHorizontalGroup(
+            jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(usernameBox, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameLoginLayout.createSequentialGroup()
+                            .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                            .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jFrameLoginLayout.setVerticalGroup(
+            jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameLoginLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(usernameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -613,6 +689,10 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
+        loginState.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        loginState.setForeground(new java.awt.Color(153, 153, 153));
+        loginState.setText("Not Logged In");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -639,23 +719,27 @@ public class KeyFinderGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(searchKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchFobsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(lostKeysBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchKeysBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(68, 68, 68)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(507, 507, 507)
+                .addComponent(loginState, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -666,7 +750,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(33, 33, 33)
+                .addComponent(loginState, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -714,6 +800,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         );
 
         fileJMenu.setText("File");
+        fileJMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileJMenuActionPerformed(evt);
+            }
+        });
 
         loadKeyItem.setText("Load Keys");
         loadKeyItem.addActionListener(new java.awt.event.ActionListener() {
@@ -743,8 +834,21 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         fileJMenu.add(saveMenuItem);
         fileJMenu.add(jSeparator1);
 
-        loginMenuItem.setText("Login/Logout");
+        loginMenuItem.setText("Login");
+        loginMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginMenuItemActionPerformed(evt);
+            }
+        });
         fileJMenu.add(loginMenuItem);
+
+        logoutBtn.setText("Logout");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+        fileJMenu.add(logoutBtn);
 
         jMenuBar2.add(fileJMenu);
 
@@ -769,6 +873,14 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public String adminUsername = "admin";
+    public String adminPassword = "admin";
+    
+    public String userPassword = "user";
+    public String userUsername = "user";
+    
+   
     private void loadKeyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadKeyItemActionPerformed
 
                KeyFinder ld = new KeyFinder();
@@ -1084,6 +1196,85 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_clearActionPerformed
 
+    private void loginMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginMenuItemActionPerformed
+        
+        jFrameLogin.show();
+        jFrameLogin.setDefaultCloseOperation(jFrameLogin.HIDE_ON_CLOSE);
+        
+        usernameBox.setText("");
+        passwordBox.setText("");
+        
+        
+        
+        
+    }//GEN-LAST:event_loginMenuItemActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cancelLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelLoginActionPerformed
+        
+        jFrameLogin.dispose();
+       
+    }//GEN-LAST:event_cancelLoginActionPerformed
+
+    private void fileJMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileJMenuActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_fileJMenuActionPerformed
+
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        
+        if((usernameBox.getText().equals(adminUsername))&&(passwordBox.getText().equals(adminPassword))){
+            loginMenuItem.hide();
+            logoutBtn.show();
+            
+           addBtn.setVisible(true);
+           jFrameLogin.dispose();
+           
+           loginState.setText("Logged in as Admin");
+            
+        }
+        else if((usernameBox.getText().equals(userUsername))&&(passwordBox.getText().equals(userPassword)))  {
+         
+            loginMenuItem.hide();
+            logoutBtn.show();
+   
+            addBtn.setVisible(true);
+            jFrameLogin.dispose();
+            loginState.setText("Logged in as User");
+   
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Incorrect Username and/or Password", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_loginBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        
+        logoutBtn.setVisible(false);
+        loginMenuItem.setVisible(true);
+        addBtn.setVisible(false);
+        
+        loginState.setText("Not Logged In");
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1140,6 +1331,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton cancelFobs;
     private javax.swing.JButton cancelKeys;
+    private javax.swing.JButton cancelLogin;
     private javax.swing.JButton cancelLostKeys;
     private javax.swing.JButton clear;
     private javax.swing.JButton editFobs;
@@ -1158,8 +1350,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JFrame jFrameEditDialog;
     private javax.swing.JFrame jFrameFobs;
     public javax.swing.JFrame jFrameKeys;
+    private javax.swing.JFrame jFrameLogin;
     private javax.swing.JFrame jFrameLostKeys;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1184,12 +1379,16 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     public javax.swing.JButton keySearchBtn;
     private javax.swing.JLabel keysLabel;
     private javax.swing.JMenuItem loadKeyItem;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JMenuItem loginMenuItem;
+    private javax.swing.JLabel loginState;
+    private javax.swing.JMenuItem logoutBtn;
     private javax.swing.JRadioButton lostKeyBtn;
     private javax.swing.JButton lostKeysBtn;
     private javax.swing.JComboBox<String> lostKeysComboBox;
     private javax.swing.JLabel lostKeysLabel;
     public static javax.swing.JTextArea outputTextArea;
+    private javax.swing.JPasswordField passwordBox;
     private javax.swing.JLabel rguLogoJLabel;
     private javax.swing.JButton saveBtn;
     private javax.swing.JMenuItem saveMenuItem;
@@ -1198,5 +1397,6 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JButton searchFobsBtn;
     private javax.swing.JButton searchKeysBtn;
     private javax.swing.JLabel textLabel;
+    private javax.swing.JTextField usernameBox;
     // End of variables declaration//GEN-END:variables
 }
