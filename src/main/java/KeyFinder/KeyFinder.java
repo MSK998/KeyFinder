@@ -72,7 +72,7 @@ public class KeyFinder {
         }
     }
 
-    public void loadKeyData() {
+    public void loadData(int sheetIndex) {
         long startTime = System.nanoTime();
 
         /*
@@ -88,7 +88,7 @@ public class KeyFinder {
             XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
 
             //Return first sheet from the XLSX workbook
-            XSSFSheet sheet = myWorkBook.getSheetAt(1);
+            XSSFSheet sheet = myWorkBook.getSheetAt(sheetIndex);
 
             //Get manually iterate through all rows in the sheet
             XSSFRow row;
@@ -158,188 +158,23 @@ public class KeyFinder {
 
         System.out.println((System.nanoTime() - startTime) / 1000000);
     }
+
+    public void loadKeyData(){
+        loadData(1);
+    }
     
     public void loadFobs(){
-         long startTime = System.nanoTime();
-
-        /*
-         * To Create an option to add an extra field we will need to have a boolean
-         * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
-         */
-        try {
-            File myFile = new File(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
-
-            FileInputStream fis = new FileInputStream(myFile);
-
-            //Finds the workbook instance for XLSX file
-            XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
-
-            //Return first sheet from the XLSX workbook
-            XSSFSheet sheet = myWorkBook.getSheetAt(0);
-
-            //Get manually iterate through all rows in the sheet
-            XSSFRow row;
-
-            int totalNumCol = (sheet.getRow(0).getLastCellNum());
-            System.out.println(totalNumCol);
-            
-
-            //Traverse over the row of the XLSX file
-            int finalRowNum = sheet.getLastRowNum();
-
-            for(int x = 0; x < finalRowNum; x++){
-                row = sheet.getRow(x);
-                spreadSheet.add(new ArrayList<String>());
-                String fullRow = "";
-                
-
-
-                for(int y = 0; y < totalNumCol; y++) {
-                    XSSFCell cell = row.getCell(y, MissingCellPolicy.RETURN_BLANK_AS_NULL);
-
-                    if(cell == null){
-                        spreadSheet.get(x).add("[BLANK]");
-                        fullRow += "[BLANK]" + "\t\t\t";
-                        
-                    } else {
-                        switch (cell.getCellType()) {
-                            case STRING:
-                                //System.out.println(cell.getStringCellValue() + "\t");
-                                fullRow += cell.getStringCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(cell.getStringCellValue());
-                                KeyFinderGUI.outputTextArea.append("\n");
-                                
-                                
-                                break;
-                            case NUMERIC:
-                                //System.out.println(cell.getNumericCellValue() + "\t");
-                                fullRow += cell.getNumericCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(String.valueOf(cell.getNumericCellValue()));
-                               
-                                
-                                break;
-                            case BOOLEAN:
-                                //System.out.println(cell.getBooleanCellValue() + "\t");
-                                fullRow += cell.getBooleanCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(String.valueOf(cell.getBooleanCellValue()));
-                                
-                               
-                                break;
-                            case FORMULA:
-                                break;
-                            default:
-                                fullRow += "[BLANK]" + "\t\t\t";
-                                spreadSheet.get(x).add("[BLANK]");
-                               
-                        }
-                    }
-                }
-                System.out.println(fullRow);
-                KeyFinderGUI.outputTextArea.append(fullRow);
-            }
-
-        } catch (Exception e) {
-            System.out.println("error" + e);
-            System.exit(1);
-        }
-
-        System.out.println((System.nanoTime() - startTime) / 1000000);
-        
+         loadData(0);
     }
     
     
     public void loadLost() {
-         long startTime = System.nanoTime();
-
-        /*
-         * To Create an option to add an extra field we will need to have a boolean
-         * to add an extra field, if wanted we can add an extra variable for the user to decide the field.
-         */
-        try {
-            File myFile = new File(new File("src/main/resources/Key Records Sample.xlsx").getAbsolutePath());
-
-            FileInputStream fis = new FileInputStream(myFile);
-
-            //Finds the workbook instance for XLSX file
-            XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
-
-            //Return first sheet from the XLSX workbook
-            XSSFSheet sheet = myWorkBook.getSheetAt(2);
-
-            //Get manually iterate through all rows in the sheet
-            XSSFRow row;
-
-            int totalNumCol = (sheet.getRow(0).getLastCellNum());
-            System.out.println(totalNumCol);
-            
-
-            //Traverse over the row of the XLSX file
-            int finalRowNum = sheet.getLastRowNum();
-
-            for(int x = 0; x < finalRowNum; x++){
-                row = sheet.getRow(x);
-                spreadSheet.add(new ArrayList<String>());
-                String fullRow = "";
-                
-
-
-                for(int y = 0; y < totalNumCol; y++) {
-                    XSSFCell cell = row.getCell(y, MissingCellPolicy.RETURN_BLANK_AS_NULL);
-
-                    if(cell == null){
-                        spreadSheet.get(x).add("[BLANK]");
-                        fullRow += "[BLANK]" + "\t\t\t";
-                        
-                    } else {
-                        switch (cell.getCellType()) {
-                            case STRING:
-                                //System.out.println(cell.getStringCellValue() + "\t");
-                                fullRow += cell.getStringCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(cell.getStringCellValue());
-                                KeyFinderGUI.outputTextArea.append("\n");
-                                
-                                
-                                break;
-                            case NUMERIC:
-                                //System.out.println(cell.getNumericCellValue() + "\t");
-                                fullRow += cell.getNumericCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(String.valueOf(cell.getNumericCellValue()));
-                               
-                                
-                                break;
-                            case BOOLEAN:
-                                //System.out.println(cell.getBooleanCellValue() + "\t");
-                                fullRow += cell.getBooleanCellValue() + "\t\t\t";
-                                spreadSheet.get(x).add(String.valueOf(cell.getBooleanCellValue()));
-                                
-                               
-                                break;
-                            case FORMULA:
-                                break;
-                            default:
-                                fullRow += "[BLANK]" + "\t\t\t";
-                                spreadSheet.get(x).add("[BLANK]");
-                               
-                        }
-                    }
-                }
-                System.out.println(fullRow);
-                KeyFinderGUI.outputTextArea.append(fullRow);
-            }
-
-        } catch (Exception e) {
-            System.out.println("error" + e);
-            System.exit(1);
-        }
-
-        System.out.println((System.nanoTime() - startTime) / 1000000);
-        
-        
+        loadData(2);
     }
     
   public void keywrite(){
         KeyFinderGUI key = new KeyFinderGUI();
-          String excelFilePath = "src/main/resources/Key Records Sample.xlsx";
+          String excelFilePath = "src/main/resources/Key Records Sample Test Output.xlsx";
 
     try {
         //finds the file and sets as input stream
