@@ -10,8 +10,9 @@ Download and compile in an IDE. There will be a JAR Available soon.
 This project is part of the CM3108 Project Management Module.
 
 ## Contributors
-Lee Robbie
-Lewis Ross
-Mark Scott-Kiddie
-Reuben Hadden
-Scott Guy
+Markup :
+* Lee Robbie
+* Lewis Ross
+* Mark Scott-Kiddie
+* Reuben Hadden
+* Scott Guy
