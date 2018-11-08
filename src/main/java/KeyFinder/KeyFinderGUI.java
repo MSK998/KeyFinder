@@ -48,6 +48,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jFrameFobs = new javax.swing.JFrame();
+        fobsBackground = new javax.swing.JPanel();
         fobsJComboBox = new javax.swing.JComboBox<>();
         inputTextField = new javax.swing.JTextField();
         attributeLabel = new javax.swing.JLabel();
@@ -55,18 +56,21 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         fobsLabel = new javax.swing.JLabel();
         textLabel = new javax.swing.JLabel();
         jFrameKeys = new javax.swing.JFrame();
+        keysBackground = new javax.swing.JPanel();
         keySearchBtn = new javax.swing.JButton();
         keysLabel = new javax.swing.JLabel();
         KeyAttribute = new javax.swing.JComboBox<>();
         KeySearch = new javax.swing.JTextField();
         attributeLabel1 = new javax.swing.JLabel();
         jFrameLostKeys = new javax.swing.JFrame();
+        lostKeysBackground = new javax.swing.JPanel();
         lostKeysComboBox = new javax.swing.JComboBox<>();
         inputTextField1 = new javax.swing.JTextField();
         searchBtn2 = new javax.swing.JButton();
         lostKeysLabel = new javax.swing.JLabel();
         attributeLabel2 = new javax.swing.JLabel();
         jFrameAddDialog = new javax.swing.JFrame();
+        addDialogBackground = new javax.swing.JPanel();
         keyBtn = new javax.swing.JRadioButton();
         fobBtn = new javax.swing.JRadioButton();
         lostKeyBtn = new javax.swing.JRadioButton();
@@ -82,6 +86,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jFrameEditDialog = new javax.swing.JFrame();
+        editDialogBackground = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -90,6 +95,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jFrameLogin = new javax.swing.JFrame();
+        loginBackground = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         usernameBox = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -124,8 +130,12 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jFrameFobs.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrameFobs.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
+        jFrameFobs.setMinimumSize(new java.awt.Dimension(400, 260));
+
+        fobsBackground.setBackground(new java.awt.Color(255, 255, 255));
 
         fobsJComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fobsJComboBox.setForeground(new java.awt.Color(148, 50, 129));
         fobsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff/Fob Name", "Fob Number" }));
         fobsJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,9 +151,11 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         attributeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        attributeLabel.setForeground(new java.awt.Color(153, 0, 230));
+        attributeLabel.setForeground(new java.awt.Color(148, 50, 129));
         attributeLabel.setText("Select Attribute");
 
+        searchBtn.setBackground(new java.awt.Color(148, 50, 129));
+        searchBtn.setForeground(new java.awt.Color(255, 255, 255));
         searchBtn.setText("Search");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,58 +164,77 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         fobsLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        fobsLabel.setForeground(new java.awt.Color(153, 0, 230));
+        fobsLabel.setForeground(new java.awt.Color(148, 50, 129));
         fobsLabel.setText("Fobs");
 
         textLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        textLabel.setForeground(new java.awt.Color(153, 0, 230));
+        textLabel.setForeground(new java.awt.Color(148, 50, 129));
         textLabel.setText("Enter Text:");
+
+        javax.swing.GroupLayout fobsBackgroundLayout = new javax.swing.GroupLayout(fobsBackground);
+        fobsBackground.setLayout(fobsBackgroundLayout);
+        fobsBackgroundLayout.setHorizontalGroup(
+            fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                        .addComponent(fobsLabel)
+                        .addContainerGap(297, Short.MAX_VALUE))
+                    .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                        .addGroup(fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fobsBackgroundLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(135, 135, 135))
+        );
+        fobsBackgroundLayout.setVerticalGroup(
+            fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fobsLabel)
+                .addGap(10, 10, 10)
+                .addGroup(fobsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                        .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fobsBackgroundLayout.createSequentialGroup()
+                        .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
 
         javax.swing.GroupLayout jFrameFobsLayout = new javax.swing.GroupLayout(jFrameFobs.getContentPane());
         jFrameFobs.getContentPane().setLayout(jFrameFobsLayout);
         jFrameFobsLayout.setHorizontalGroup(
             jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameFobsLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameFobsLayout.createSequentialGroup()
-                        .addComponent(fobsLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameFobsLayout.createSequentialGroup()
-                        .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameFobsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+            .addComponent(fobsBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jFrameFobsLayout.setVerticalGroup(
             jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameFobsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fobsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(attributeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jFrameFobsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fobsJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+            .addComponent(fobsBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jFrameKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrameKeys.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
+        jFrameKeys.setMinimumSize(new java.awt.Dimension(400, 260));
 
+        keysBackground.setBackground(new java.awt.Color(255, 255, 255));
+        keysBackground.setMinimumSize(new java.awt.Dimension(400, 260));
+
+        keySearchBtn.setBackground(new java.awt.Color(148, 50, 129));
+        keySearchBtn.setForeground(new java.awt.Color(255, 255, 255));
         keySearchBtn.setText("Search");
         keySearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,9 +243,10 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         keysLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        keysLabel.setForeground(new java.awt.Color(68, 198, 111));
+        keysLabel.setForeground(new java.awt.Color(148, 50, 129));
         keysLabel.setText("Keys:");
 
+        KeyAttribute.setForeground(new java.awt.Color(148, 50, 129));
         KeyAttribute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Key #", "Key Type", "Allocated To", "Location", "" }));
         KeyAttribute.setToolTipText("");
         KeyAttribute.addActionListener(new java.awt.event.ActionListener() {
@@ -230,105 +262,152 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         attributeLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        attributeLabel1.setForeground(new java.awt.Color(68, 198, 111));
+        attributeLabel1.setForeground(new java.awt.Color(148, 50, 129));
         attributeLabel1.setText("Select Attribute");
+
+        javax.swing.GroupLayout keysBackgroundLayout = new javax.swing.GroupLayout(keysBackground);
+        keysBackground.setLayout(keysBackgroundLayout);
+        keysBackgroundLayout.setHorizontalGroup(
+            keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(keysBackgroundLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(keysBackgroundLayout.createSequentialGroup()
+                        .addComponent(keysLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(keysBackgroundLayout.createSequentialGroup()
+                        .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGroup(keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))))
+            .addGroup(keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(keysBackgroundLayout.createSequentialGroup()
+                    .addContainerGap(171, Short.MAX_VALUE)
+                    .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(131, 131, 131)))
+        );
+        keysBackgroundLayout.setVerticalGroup(
+            keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(keysBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(keysLabel)
+                .addGroup(keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(keysBackgroundLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(keysBackgroundLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(keysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(keysBackgroundLayout.createSequentialGroup()
+                    .addGap(170, 170, 170)
+                    .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout jFrameKeysLayout = new javax.swing.GroupLayout(jFrameKeys.getContentPane());
         jFrameKeys.getContentPane().setLayout(jFrameKeysLayout);
         jFrameKeysLayout.setHorizontalGroup(
             jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameKeysLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameKeysLayout.createSequentialGroup()
-                        .addComponent(keysLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameKeysLayout.createSequentialGroup()
-                        .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameKeysLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+            .addComponent(keysBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jFrameKeysLayout.setVerticalGroup(
             jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameKeysLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(keysLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(attributeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jFrameKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(KeySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(KeyAttribute, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(keySearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+            .addComponent(keysBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jFrameLostKeys.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrameLostKeys.setBounds(new java.awt.Rectangle(200, 200, 400, 300));
+        jFrameLostKeys.setMinimumSize(new java.awt.Dimension(400, 260));
 
+        lostKeysBackground.setBackground(new java.awt.Color(255, 255, 255));
+
+        lostKeysComboBox.setForeground(new java.awt.Color(148, 50, 129));
         lostKeysComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         inputTextField1.setText("Enter Text");
 
+        searchBtn2.setBackground(new java.awt.Color(148, 50, 129));
+        searchBtn2.setForeground(new java.awt.Color(255, 255, 255));
         searchBtn2.setText("Search");
 
         lostKeysLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lostKeysLabel.setForeground(new java.awt.Color(68, 157, 191));
+        lostKeysLabel.setForeground(new java.awt.Color(148, 50, 129));
         lostKeysLabel.setText("Lost Keys:");
 
         attributeLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        attributeLabel2.setForeground(new java.awt.Color(68, 157, 191));
+        attributeLabel2.setForeground(new java.awt.Color(148, 50, 129));
         attributeLabel2.setText("Select Attribute");
+
+        javax.swing.GroupLayout lostKeysBackgroundLayout = new javax.swing.GroupLayout(lostKeysBackground);
+        lostKeysBackground.setLayout(lostKeysBackgroundLayout);
+        lostKeysBackgroundLayout.setHorizontalGroup(
+            lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                        .addComponent(lostKeysLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                        .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19))))
+            .addGroup(lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                    .addGap(156, 156, Short.MAX_VALUE)
+                    .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(126, 126, 126)))
+        );
+        lostKeysBackgroundLayout.setVerticalGroup(
+            lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lostKeysLabel)
+                .addGroup(lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(lostKeysBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lostKeysBackgroundLayout.createSequentialGroup()
+                    .addGap(165, 165, 165)
+                    .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(33, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout jFrameLostKeysLayout = new javax.swing.GroupLayout(jFrameLostKeys.getContentPane());
         jFrameLostKeys.getContentPane().setLayout(jFrameLostKeysLayout);
         jFrameLostKeysLayout.setHorizontalGroup(
             jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameLostKeysLayout.createSequentialGroup()
-                        .addComponent(lostKeysLabel)
-                        .addContainerGap(176, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameLostKeysLayout.createSequentialGroup()
-                        .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))))
-            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(lostKeysBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jFrameLostKeysLayout.setVerticalGroup(
             jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameLostKeysLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lostKeysLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(attributeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jFrameLostKeysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lostKeysComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(searchBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+            .addComponent(lostKeysBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jFrameAddDialog.setBounds(new java.awt.Rectangle(100, 100, 400, 480));
+        jFrameAddDialog.setMinimumSize(new java.awt.Dimension(397, 590));
+
+        addDialogBackground.setBackground(new java.awt.Color(255, 255, 255));
+        addDialogBackground.setPreferredSize(new java.awt.Dimension(350, 560));
 
         keyBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        keyBtn.setForeground(new java.awt.Color(148, 50, 129));
         keyBtn.setText("Key");
         keyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +416,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         fobBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fobBtn.setForeground(new java.awt.Color(148, 50, 129));
         fobBtn.setText("Fob");
         fobBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +425,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         lostKeyBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lostKeyBtn.setForeground(new java.awt.Color(148, 50, 129));
         lostKeyBtn.setText("Lost Key");
         lostKeyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,6 +433,8 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
+        addExcelBtn.setBackground(new java.awt.Color(148, 50, 129));
+        addExcelBtn.setForeground(new java.awt.Color(255, 255, 255));
         addExcelBtn.setText("Add");
         addExcelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,88 +443,107 @@ public class KeyFinderGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(148, 50, 129));
         jLabel1.setText("Add:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(148, 50, 129));
         jLabel6.setText("Select the Type");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(148, 50, 129));
         jLabel7.setText("Select the Type");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(148, 50, 129));
         jLabel8.setText("Select the Type");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(148, 50, 129));
         jLabel9.setText("Select the Type");
+
+        javax.swing.GroupLayout addDialogBackgroundLayout = new javax.swing.GroupLayout(addDialogBackground);
+        addDialogBackground.setLayout(addDialogBackgroundLayout);
+        addDialogBackgroundLayout.setHorizontalGroup(
+            addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDialogBackgroundLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addExcelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(49, 49, 49))
+                        .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                            .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(keyBtn)
+                                .addComponent(fobBtn)
+                                .addComponent(lostKeyBtn))
+                            .addGap(37, 37, 37)
+                            .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        addDialogBackgroundLayout.setVerticalGroup(
+            addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 562, Short.MAX_VALUE)
+            .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                    .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                            .addGap(64, 64, 64)
+                            .addComponent(keyBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fobBtn))
+                        .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel8)))
+                    .addGap(13, 13, 13)
+                    .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(addDialogBackgroundLayout.createSequentialGroup()
+                            .addGap(51, 51, 51)
+                            .addGroup(addDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lostKeyBtn)
+                                .addComponent(jLabel9)))
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(22, 22, 22)
+                    .addComponent(addExcelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
 
         javax.swing.GroupLayout jFrameAddDialogLayout = new javax.swing.GroupLayout(jFrameAddDialog.getContentPane());
         jFrameAddDialog.getContentPane().setLayout(jFrameAddDialogLayout);
         jFrameAddDialogLayout.setHorizontalGroup(
             jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAddDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addExcelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-            .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keyBtn)
-                    .addComponent(fobBtn)
-                    .addComponent(lostKeyBtn))
-                .addGap(37, 37, 37)
-                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(44, Short.MAX_VALUE))))
+            .addComponent(addDialogBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jFrameAddDialogLayout.setVerticalGroup(
             jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameAddDialogLayout.createSequentialGroup()
-                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
-                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(keyBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fobBtn))
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)))
-                .addGap(13, 13, 13)
-                .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameAddDialogLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jFrameAddDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lostKeyBtn)
-                            .addComponent(jLabel9)))
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(addExcelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+            .addComponent(addDialogBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
         );
 
         buttonGroup2.add(keyBtn);
@@ -450,6 +552,10 @@ public class KeyFinderGUI extends javax.swing.JFrame {
 
         jFrameEditDialog.setBounds(new java.awt.Rectangle(100, 100, 350, 490));
 
+        editDialogBackground.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton2.setBackground(new java.awt.Color(148, 50, 129));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,65 +563,89 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(148, 50, 129));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Done");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(148, 50, 129));
         jLabel5.setText("Edit:");
+
+        javax.swing.GroupLayout editDialogBackgroundLayout = new javax.swing.GroupLayout(editDialogBackground);
+        editDialogBackground.setLayout(editDialogBackgroundLayout);
+        editDialogBackgroundLayout.setHorizontalGroup(
+            editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 315, Short.MAX_VALUE)
+            .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(editDialogBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(editDialogBackgroundLayout.createSequentialGroup()
+                            .addGap(84, 84, 84)
+                            .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(editDialogBackgroundLayout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField8)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(editDialogBackgroundLayout.createSequentialGroup()
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(19, Short.MAX_VALUE)))
+        );
+        editDialogBackgroundLayout.setVerticalGroup(
+            editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(editDialogBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(30, 30, 30)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(26, 26, 26)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(editDialogBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap()))
+        );
 
         javax.swing.GroupLayout jFrameEditDialogLayout = new javax.swing.GroupLayout(jFrameEditDialog.getContentPane());
         jFrameEditDialog.getContentPane().setLayout(jFrameEditDialogLayout);
         jFrameEditDialogLayout.setHorizontalGroup(
             jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameEditDialogLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField8)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jFrameEditDialogLayout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+            .addComponent(editDialogBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jFrameEditDialogLayout.setVerticalGroup(
             jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameEditDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jFrameEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+            .addComponent(editDialogBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jFrameLogin.setMinimumSize(new java.awt.Dimension(272, 350));
 
+        loginBackground.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(148, 50, 129));
         jLabel10.setText("Username:");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(148, 50, 129));
         jLabel11.setText("Password:");
 
+        loginBtn.setBackground(new java.awt.Color(148, 50, 129));
         loginBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Login");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -523,7 +653,9 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
+        cancelLogin.setBackground(new java.awt.Color(148, 50, 129));
         cancelLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cancelLogin.setForeground(new java.awt.Color(255, 255, 255));
         cancelLogin.setText("Cancel");
         cancelLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,40 +663,58 @@ public class KeyFinderGUI extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout loginBackgroundLayout = new javax.swing.GroupLayout(loginBackground);
+        loginBackground.setLayout(loginBackgroundLayout);
+        loginBackgroundLayout.setHorizontalGroup(
+            loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 257, Short.MAX_VALUE)
+            .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(loginBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginBackgroundLayout.createSequentialGroup()
+                                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(loginBackgroundLayout.createSequentialGroup()
+                                .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(usernameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(118, 118, 118)))
+                        .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        loginBackgroundLayout.setVerticalGroup(
+            loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 281, Short.MAX_VALUE)
+            .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(loginBackgroundLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(usernameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(23, 23, 23)
+                    .addComponent(jLabel11)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                    .addGroup(loginBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout jFrameLoginLayout = new javax.swing.GroupLayout(jFrameLogin.getContentPane());
         jFrameLogin.getContentPane().setLayout(jFrameLoginLayout);
         jFrameLoginLayout.setHorizontalGroup(
             jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameLoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(usernameBox, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameLoginLayout.createSequentialGroup()
-                            .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                            .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(loginBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jFrameLoginLayout.setVerticalGroup(
             jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrameLoginLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(jFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addComponent(loginBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1279,6 +1429,7 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem LoadFobItem;
     private javax.swing.JMenuItem LoadLostItem;
     private javax.swing.JButton addBtn;
+    private javax.swing.JPanel addDialogBackground;
     private javax.swing.JButton addExcelBtn;
     private javax.swing.JLabel attributeLabel;
     private javax.swing.JLabel attributeLabel1;
@@ -1286,11 +1437,13 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton cancelLogin;
     private javax.swing.JButton clear;
+    private javax.swing.JPanel editDialogBackground;
     private javax.swing.JButton editFobs;
     private javax.swing.JButton editKeys;
     private javax.swing.JButton editLostKeys;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JRadioButton fobBtn;
+    private javax.swing.JPanel fobsBackground;
     private javax.swing.JComboBox<String> fobsJComboBox;
     private javax.swing.JLabel fobsLabel;
     private javax.swing.JTextField inputTextField;
@@ -1329,13 +1482,16 @@ public class KeyFinderGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JRadioButton keyBtn;
     public javax.swing.JButton keySearchBtn;
+    private javax.swing.JPanel keysBackground;
     private javax.swing.JLabel keysLabel;
     private javax.swing.JMenuItem loadKeyItem;
+    private javax.swing.JPanel loginBackground;
     private javax.swing.JButton loginBtn;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JLabel loginState;
     private javax.swing.JMenuItem logoutBtn;
     private javax.swing.JRadioButton lostKeyBtn;
+    private javax.swing.JPanel lostKeysBackground;
     private javax.swing.JButton lostKeysBtn;
     private javax.swing.JComboBox<String> lostKeysComboBox;
     private javax.swing.JLabel lostKeysLabel;
