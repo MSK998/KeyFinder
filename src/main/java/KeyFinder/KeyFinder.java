@@ -30,25 +30,37 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
  */
 public class KeyFinder {
 
-    private List<List<String>> spreadSheet;
+    private ArrayList<List<String>> spreadSheet;
 
     public KeyFinder(){
         spreadSheet = new ArrayList<List<String>>();
     }
 
-    public void searchArray(){
-        System.out.println(spreadSheet.size());
+    public void searchArray(String searchValue, int column){
+        
+
+        
+        ArrayList<List<String>> display= new ArrayList<List<String>>();
 
         for(int r = 0; r < spreadSheet.size(); r++){
+            
+            String searchField = searchValue;
+            if(spreadSheet.get(r).get(column).equals(searchField)){
+                display.add(spreadSheet.get(r));
+            }
+            
+        }
+        for(int r =0; r < display.size();r++){
             String fullRow = "";
-            String searchField = "Shona Lilly";
-            if(spreadSheet.get(r).get(2).equals(searchField)){
-                for(int c = 0; c < spreadSheet.get(0).size(); c++){
-                    fullRow += spreadSheet.get(r).get(c);
-                }
+            for(int c = 0; c<display.get(0).size();c++){
+                fullRow += display.get(r).get(c); 
+    
             }
             System.out.println(fullRow);
+            KeyFinderGUI.outputTextArea.append(fullRow);
+    
         }
+        
 
     }
 
@@ -110,7 +122,7 @@ public class KeyFinder {
             XSSFRow row;
 
             int totalNumCol = (sheet.getRow(0).getLastCellNum());
-            System.out.println(totalNumCol);
+            //System.out.println(totalNumCol);
             
 
             //Traverse over the row of the XLSX file
@@ -163,7 +175,7 @@ public class KeyFinder {
                         }
                     }
                 }
-                System.out.println(fullRow);
+               // System.out.println(fullRow);
                 KeyFinderGUI.outputTextArea.append(fullRow);
             }
 
