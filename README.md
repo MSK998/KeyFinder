@@ -10,9 +10,15 @@ Download and compile in an IDE. There will be a JAR Available soon.
 This project is part of the CM3108 Project Management Module.
 
 ## Contributors
-Markup :
+
 * Lee Robbie
 * Lewis Ross
 * Mark Scott-Kiddie
 * Reuben Hadden
 * Scott Guy
+
+## Instructions
+
+* To load the spreadsheet into the program, press the file tab and a dropdown will appear to load the specific kind of sheet that it is in.  
+  
+*

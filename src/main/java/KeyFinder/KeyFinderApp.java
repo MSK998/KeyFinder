@@ -30,7 +30,12 @@ public class KeyFinderApp extends javax.swing.JFrame {
 
         //System.out.println("Outputting cell:");
 
+        sheet1.loadData(1);
+
+
         System.out.println("____________________________________________________________________________________________");
+
+        sheet1.searchArray();
 
        //sheet1.displaySpecific(53,1);
 

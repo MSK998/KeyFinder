@@ -36,6 +36,22 @@ public class KeyFinder {
         spreadSheet = new ArrayList<List<String>>();
     }
 
+    public void searchArray(){
+        System.out.println(spreadSheet.size());
+
+        for(int r = 0; r < spreadSheet.size(); r++){
+            String fullRow = "";
+            String searchField = "Shona Lilly";
+            if(spreadSheet.get(r).get(2).equals(searchField)){
+                for(int c = 0; c < spreadSheet.get(0).size(); c++){
+                    fullRow += spreadSheet.get(r).get(c);
+                }
+            }
+            System.out.println(fullRow);
+        }
+
+    }
+
     public void displaySpecific(int y, int x){
         System.out.println(spreadSheet.get(y).get(x));
     }
