@@ -35,8 +35,6 @@ public class KeyFinderApp extends javax.swing.JFrame {
 
         System.out.println("____________________________________________________________________________________________");
 
-        sheet1.searchArray();
-
        //sheet1.displaySpecific(53,1);
 
         System.out.println("____________________________________________________________________________________________");

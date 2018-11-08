@@ -21,4 +21,4 @@ This project is part of the CM3108 Project Management Module.
 
 * To load the spreadsheet into the program, press the file tab and a dropdown will appear to load the specific kind of sheet that it is in.  
   
-*
+* To sign in to an account use the file menu and press login.
